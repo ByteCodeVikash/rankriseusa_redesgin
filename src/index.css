@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 45% 3%; /* Darker, closer to #05070a */
+    --foreground: 210 40% 98%;
+
+    --card: 230 45% 5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 45% 3%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Admark Cyber Gold */
+    --primary: 48 100% 50%;
+    --primary-foreground: 230 45% 3%;
+    
+    /* Cinematic Navy */
+    --secondary: 230 45% 7%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 48 100% 55%;
+    --accent-foreground: 230 45% 3%;
+
+    --muted: 217 19% 10%;
+    --muted-foreground: 215 20% 65%;
+
+    --border: 217 19% 12%;
+    --input: 217 19% 12%;
+    --ring: 48 100% 50%;
+
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tighter;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-weight: 900;
+  }
+
+  p {
+    @apply text-muted-foreground font-medium;
+    line-height: 1.7;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #FACC15 0%, #EAB308 50%, #CA8A04 100%);
+  }
+  
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-2xl border border-white/5;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .neural-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(250, 204, 21, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(250, 204, 21, 0.03) 1px, transparent 1px);
+  }
+
+  .gold-bar {
+    @apply bg-primary text-background font-black uppercase tracking-widest px-8 py-6 rounded-2xl flex items-center justify-between transition-all duration-500 hover:scale-[1.02] shadow-[0_10px_30px_rgba(250,204,21,0.2)];
+  }
+
+  .section-light {
+    @apply bg-white text-black;
+  }
+
+  .section-light h2, .section-light h3 {
+    @apply text-black;
+  }
+
+  .section-light p {
+    @apply text-gray-600;
+  }
+  
+  .button-premium {
+    @apply px-10 py-5 rounded-full font-black transition-all duration-500 active:scale-95 flex items-center justify-center gap-3 relative overflow-hidden;
+    background: #EAB308;
+    color: #05070a;
+    box-shadow: 0 10px 40px rgba(234, 179, 8, 0.2);
+  }
+
+  .button-premium:hover {
+    @apply shadow-[0_15px_50px_rgba(234,179,8,0.4)];
+    transform: translateY(-4px);
+    background: #FACC15;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e213a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FACC15;
+}
+
+/* Hide scrollbar for elements */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Animations */
+@keyframes gold-shimmer {
+  to { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 20s linear infinite;
+}
+

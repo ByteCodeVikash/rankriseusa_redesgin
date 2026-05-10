@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rankriseusa.com/sitemap.xml
+Sitemap: https://rankriseusa.com/sitemap_index.xml

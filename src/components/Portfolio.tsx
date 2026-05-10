@@ -1,0 +1,287 @@
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, TrendingUp, Users, Zap, Star, ArrowRight, Sparkles, Code, Brain, Target, BarChart3, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+
+export default function Portfolio() {
+  const [filter, setFilter] = useState('All');
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  const projects = [
+    {
+      title: 'Neural Finance Hub',
+      category: 'AI/ML',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+      color: 'from-primary to-accent',
+      description: 'Built an AI-driven fintech dashboard with predictive market analytics and automated asset management.',
+      challenge: 'Needed to process 1M+ data points per second with sub-10ms latency.',
+      solution: 'Custom neural networks integrated with a high-performance Rust backend.',
+      stats: { accuracy: '99.4%', speed: '12ms', ROI: '+35%' },
+      results: ['Ranked #1 AI Finance tool', 'Managed $500M in assets', 'Zero downtime over 12 months'],
+      tech: ['PyTorch', 'Rust', 'Next.js', 'WebSockets'],
+    },
+    {
+      title: 'GEO Dominance Strategy',
+      category: 'GEO + SEO',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+      color: 'from-primary to-accent',
+      description: 'Secured top placement on ChatGPT and Gemini for a global SaaS brand using generative engine optimization.',
+      challenge: 'Legacy SEO strategy was failing in the AI search era.',
+      solution: 'Semantic content clusters and neural link building techniques.',
+      stats: { impressions: '15M', ranking: '#1', growth: '450%' },
+      results: ['Top recommendation by Perplexity', 'Organic leads up 300%', 'Domain authority boosted to 82'],
+      tech: ['Semantic AI', 'LLM Agents', 'Data Mapping', 'Search Console'],
+    },
+    {
+      title: 'E-commerce Evolution',
+      category: 'Web Dev',
+      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+      color: 'from-primary to-accent',
+      description: 'A headless e-commerce experience with interactive 3D product previews and instant checkout.',
+      challenge: 'High bounce rates on mobile due to slow page loads.',
+      solution: 'Headless Shopify architecture with Next.js and Three.js visuals.',
+      stats: { conversion: '12.5%', speed: '98/100', sales: '+$5M' },
+      results: ['Voted Site of the Month', 'Bounce rate dropped 65%', 'Average order value up 40%'],
+      tech: ['Next.js', 'Three.js', 'Shopify Plus', 'Framer Motion'],
+    },
+    {
+      title: 'AI Brand Ecosystem',
+      category: 'Branding',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+      color: 'from-primary to-accent',
+      description: 'A complete future-proof brand identity that adapts across digital and spatial computing platforms.',
+      challenge: 'Brand felt "stuck in 2020" and didn\'t reflect its AI tech.',
+      solution: 'Generative design system with interactive brand guidelines.',
+      stats: { recognition: '95%', leads: '4x', retention: '+60%' },
+      results: ['Secured $20M Series B', 'Featured in Design Week', 'Consistent across all touchpoints'],
+      tech: ['Generative Design', 'Figma', 'React', 'Spatial UI'],
+    },
+  ];
+
+  const categories = ['All', 'AI/ML', 'GEO + SEO', 'Web Dev', 'Branding'];
+  const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+
+  return (
+    <section id="portfolio" className="py-32 relative overflow-hidden bg-[#05070a]">
+      {/* Background Orbs */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/5 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-primary text-[11px] font-black uppercase tracking-[0.3em] mb-10"
+            >
+              <Sparkles className="w-4 h-4 fill-primary" />
+              <span>THE INTELLIGENCE VAULT</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-6xl sm:text-8xl xl:text-9xl font-black mb-10 text-white leading-[0.85] tracking-tighter uppercase"
+            >
+              Proven <br />
+              <span className="text-gradient-gold italic">Superiority.</span>
+            </motion.h2>
+            
+            <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium max-w-3xl">
+              We don't just execute projects; we architect market dominance. Explore our protocols of high-impact neural transformations and market-leading expansions.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={filter === category ? 'default' : 'outline'}
+                onClick={() => setFilter(category)}
+                className={`rounded-2xl px-10 py-5 h-auto text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-700 ${
+                  filter === category 
+                    ? 'button-premium border-0' 
+                    : 'bg-white/5 border-white/10 hover:border-primary/50 text-white/50 hover:text-primary'
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {/* Project Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-16"
+          >
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+                onClick={() => setSelectedProject(projects.indexOf(project))}
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-32"
+        >
+          <Link to="/contact">
+            <Button className="button-premium text-sm uppercase tracking-[0.2em] px-16 py-10 h-auto rounded-[2.5rem] font-black group">
+              <Zap className="w-6 h-6 fill-background mr-4 group-hover:scale-125 transition-transform" />
+              Replicate This protocol
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* Project Detail Modal */}
+      <Dialog open={selectedProject !== null} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-6xl bg-[#05070a]/95 backdrop-blur-3xl border-white/10 p-0 rounded-[4rem] overflow-hidden shadow-[0_0_150px_rgba(0,0,0,0.9)]">
+          {selectedProject !== null && (
+            <div className="relative max-h-[90vh] overflow-y-auto hide-scrollbar">
+              {/* Cover Image */}
+              <div className="h-[500px] relative">
+                <img
+                  src={projects[selectedProject].image}
+                  alt={projects[selectedProject].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05070a] via-[#05070a]/40 to-transparent" />
+                <div className="absolute bottom-16 left-16 right-16">
+                  <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary text-background text-[11px] font-black uppercase tracking-[0.3em] mb-10 shadow-2xl">
+                    {projects[selectedProject].category}
+                  </div>
+                  <h3 className="text-6xl sm:text-8xl font-black text-white mb-6 tracking-tighter leading-none uppercase italic">
+                    {projects[selectedProject].title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-16 lg:p-24 space-y-24">
+                <p className="text-3xl text-white/60 leading-relaxed font-medium">
+                  {projects[selectedProject].description}
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-12">
+                  <div className="p-12 rounded-[3.5rem] bg-white/5 border border-white/5 group hover:border-primary/30 transition-all duration-700">
+                    <h4 className="text-primary font-black text-[12px] uppercase tracking-[0.4em] flex items-center gap-4 mb-10">
+                      <Target className="w-6 h-6" />
+                      Tactical Challenge
+                    </h4>
+                    <p className="text-white/70 font-medium text-xl leading-relaxed">{projects[selectedProject].challenge}</p>
+                  </div>
+                  <div className="p-12 rounded-[3.5rem] bg-primary/[0.03] border border-primary/10 group hover:border-primary/50 transition-all duration-700">
+                    <h4 className="text-primary font-black text-[12px] uppercase tracking-[0.4em] flex items-center gap-4 mb-10">
+                      <Zap className="w-6 h-6 fill-primary" />
+                      Neural Deployment
+                    </h4>
+                    <p className="text-white/70 font-medium text-xl leading-relaxed">{projects[selectedProject].solution}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-white/40 font-black text-[12px] uppercase tracking-[0.5em] mb-16 text-center">Neural Output Metrics</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+                    {Object.entries(projects[selectedProject].stats).map(([key, value]) => (
+                      <div key={key} className="p-12 rounded-[3rem] bg-[#0d1117] text-center border border-white/5 hover:border-primary/40 transition-all duration-700 group">
+                        <div className="text-6xl font-black text-primary mb-4 tracking-tighter group-hover:scale-110 transition-transform">{value}</div>
+                        <div className="text-[12px] font-black text-white/40 uppercase tracking-[0.4em]">{key}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-5 justify-center">
+                  {projects[selectedProject].tech.map((t) => (
+                    <span key={t} className="px-8 py-4 rounded-2xl bg-white/5 text-white/50 text-[12px] font-black uppercase tracking-[0.2em] border border-white/5 hover:border-primary/30 transition-all">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pt-12 text-center">
+                  <Button className="button-premium px-16 py-12 text-sm font-black uppercase tracking-[0.2em] h-auto rounded-[3rem] group">
+                    Execute This protocol
+                    <ArrowRight className="w-7 h-7 ml-4 group-hover:translate-x-3 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </section>
+  );
+}
+
+function ProjectCard({ project, index, onClick }: any) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.8 }}
+      onClick={onClick}
+      className="group relative cursor-pointer overflow-hidden rounded-[4rem] bg-[#0d1117] border border-white/5 hover:border-primary/50 transition-all duration-700 shadow-[0_40px_80px_rgba(0,0,0,0.5)]"
+    >
+      <div className="aspect-[16/11] overflow-hidden relative">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-[#0d1117]/20 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-1000" />
+        
+        {/* Action Icon */}
+        <div className="absolute top-12 right-12 w-20 h-20 rounded-3xl bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-x-8 group-hover:translate-x-0 shadow-2xl">
+          <ArrowRight className="w-8 h-8 text-background -rotate-45" />
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 p-16">
+        <div className="space-y-6">
+          <div className="flex items-center gap-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
+            <span className="w-12 h-0.5 bg-primary" />
+            <span className="text-[12px] font-black uppercase tracking-[0.4em] text-primary">
+              {project.category}
+            </span>
+          </div>
+          <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter group-hover:text-primary transition-all duration-700 uppercase italic">
+            {project.title}
+          </h3>
+          
+          <div className="flex gap-16 pt-8 opacity-0 group-hover:opacity-100 transition-all duration-1000 translate-y-12 group-hover:translate-y-0 delay-200">
+            {Object.entries(project.stats).slice(0, 2).map(([key, value]) => (
+              <div key={key} className="flex flex-col">
+                <span className="text-3xl font-black text-white tracking-tight">{value}</span>
+                <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mt-1">{key}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
