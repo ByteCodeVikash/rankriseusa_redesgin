@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, Search, Sparkles, Facebook, Instagram, Linkedin, Youtube, Phone, Mail, Clock } from 'lucide-react';
+import { Menu, X, Search, Sparkles, Facebook, Instagram, Linkedin, Youtube, Phone, Mail, Clock, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link, useLocation } from 'react-router-dom';
@@ -124,7 +124,7 @@ export default function Navigation() {
             <div className="flex items-center gap-4">
               <Link to="/contact" className="hidden sm:block">
                 <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
-                  Get A Quote
+                  Let's Talk
                 </Button>
               </Link>
               
