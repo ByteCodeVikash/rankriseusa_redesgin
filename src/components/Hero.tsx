@@ -33,43 +33,25 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          {/* Subtext Badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mb-10 inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-primary text-[11px] font-black uppercase tracking-[0.4em]"
-          >
-            <Zap className="w-4 h-4 fill-primary" />
-            <span>THE ELITE INTELLIGENCE ERA</span>
-          </motion.div>
-
-          {/* Primary Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tighter drop-shadow-2xl max-w-5xl"
-          >
-            Engineering Market Dominance with <br />
-            <span className="text-primary italic">Generative Neural Systems.</span>
-          </motion.h1>
-
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="mt-16 flex gap-6"
+            transition={{ delay: 0.8 }}
+            className="mt-80 relative group"
           >
-            <Link to="/contact">
-              <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-[0.2em] px-16 py-10 h-auto rounded-full text-sm group shadow-2xl">
+            {/* Glowing effect behind button */}
+            <div className="absolute inset-0 bg-[#EAB308]/20 blur-3xl rounded-full scale-150 animate-pulse group-hover:bg-[#EAB308]/40 transition-colors" />
+            
+            <Link to="/contact" className="relative z-10">
+              <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-[0.2em] px-10 py-6 h-auto rounded-full text-[11px] group shadow-[0_15px_40px_rgba(234,179,8,0.25)] transition-all duration-500 hover:scale-105 active:scale-95 border-b-2 border-black/10">
                 Initiate Strategy
-                <ArrowRight className="w-6 h-6 ml-4 group-hover:translate-x-2 transition-transform" />
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
               </Button>
             </Link>
           </motion.div>
         </motion.div>
       </div>
+
 
       {/* PayPal Floating Button */}
       <PayPalFloating onClick={() => setIsPayModalOpen(true)} />
