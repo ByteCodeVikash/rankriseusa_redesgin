@@ -3,7 +3,6 @@ import { Calendar, Clock, ArrowRight, BookOpen, TrendingUp, Sparkles, Mail, Chec
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
-import Clients from './Clients';
 
 export default function Blog() {
   const [hoveredArticle, setHoveredArticle] = useState<number | null>(null);
@@ -82,10 +81,8 @@ export default function Blog() {
         </div>
       </div>
 
-      {/* Orbiting Clients Scatter Section */}
-      <Clients />
-
       {/* Main Blog Content */}
+
       <div className="py-32 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">

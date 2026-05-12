@@ -18,6 +18,7 @@ export default function Services() {
     {
       icon: Search,
       title: 'GEO + AI SEO',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop',
       description: 'Rank on ChatGPT, Gemini, and Perplexity. We optimize your brand for the generative engine era.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -31,6 +32,7 @@ export default function Services() {
     {
       icon: Bot,
       title: 'AI Automation',
+      image: 'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=2000&auto=format&fit=crop',
       description: 'Custom AI agents and workflow automation that scale your business operations without increasing headcount.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -44,6 +46,7 @@ export default function Services() {
     {
       icon: Code,
       title: 'Next-Gen Web Dev',
+      image: '/assets/images/services/service_web_dev.png',
       description: 'Ultra-fast, animated, and high-conversion web experiences built with React, Next.js, and Framer Motion.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -57,6 +60,7 @@ export default function Services() {
     {
       icon: Target,
       title: 'Precision Ad Scaling',
+      image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070&auto=format&fit=crop',
       description: 'ROI-focused PPC and Meta Ads using AI-driven creative testing and predictive audience targeting.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -70,6 +74,7 @@ export default function Services() {
     {
       icon: Smartphone,
       title: 'App Development',
+      image: '/assets/images/services/service_app_dev.png',
       description: 'Premium mobile experiences for iOS and Android. Native performance with elite UI/UX design.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -83,6 +88,7 @@ export default function Services() {
     {
       icon: Shield,
       title: 'Brand Authority',
+      image: '/assets/images/services/service_brand.png',
       description: 'Manage your digital reputation and build unwavering trust through strategic ORM and content authority.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -96,6 +102,7 @@ export default function Services() {
     {
       icon: Users,
       title: 'Custom CRM/ERP',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
       description: 'Tailor-made enterprise software that unifies your sales, finance, and operations into one powerful system.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -109,6 +116,7 @@ export default function Services() {
     {
       icon: LayoutGrid,
       title: 'UI/UX Design',
+      image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop',
       description: 'World-class visual design that prioritizes user psychology and brand narrative. Design that converts.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -121,6 +129,7 @@ export default function Services() {
       comingSoon: true,
     },
   ];
+
 
   const handleAction = (service: any, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -140,16 +149,6 @@ export default function Services() {
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-primary text-[10px] font-black uppercase tracking-widest mb-6"
-            >
-              <Sparkles className="w-3 h-3 fill-primary" />
-              <span>Elite Intelligence Hub</span>
-            </motion.div>
-
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -159,6 +158,7 @@ export default function Services() {
               Architecting <br />
               <span className="text-gradient-gold">Digital Dominance.</span>
             </motion.h2>
+
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -283,7 +283,6 @@ export default function Services() {
     </section>
   );
 }
-
 function ServiceCard({ service, index, onClick, onAction }: any) {
   return (
     <motion.div
@@ -292,47 +291,45 @@ function ServiceCard({ service, index, onClick, onAction }: any) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onClick={onClick}
-      className="group relative cursor-pointer"
+      className="group relative cursor-pointer overflow-hidden rounded-[2.5rem] h-[500px]"
     >
-      <div className="relative h-full min-h-[480px] bg-[#0d1117] rounded-[3rem] p-12 border border-white/5 transition-all duration-700 hover:border-primary/50 flex flex-col overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
-        {/* Background Glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-all duration-700" />
-        
-        {/* Icon Overlay */}
-        <div className="absolute -right-8 -top-8 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-700">
-          <service.icon className="w-48 h-48" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={service.image} 
+          alt={service.title} 
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+        />
+        {/* Dark Overlays for Readability */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10 h-full p-10 flex flex-col justify-between">
+        <div className="flex justify-between items-start">
+          <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+            <service.icon className="w-6 h-6 text-white group-hover:text-background" />
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 flex flex-col h-full">
-          <div className="w-20 h-20 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-700">
-            <service.icon className="w-10 h-10 text-primary" />
-          </div>
-
-          <h3 className="text-3xl font-black mb-6 text-white leading-tight group-hover:text-primary transition-colors tracking-tighter">
+        <div>
+          <h3 className="text-3xl font-black text-white mb-6 leading-tight tracking-tighter group-hover:text-primary transition-colors">
             {service.title}
           </h3>
           
-          <p className="text-lg text-white/50 mb-10 leading-relaxed font-medium group-hover:text-white/70 transition-colors">
-            {service.description}
-          </p>
-          
-          <div className="mt-auto">
-            <div className="flex flex-wrap gap-2 mb-8">
-              {service.features.slice(0, 2).map((feature: string, i: number) => (
-                <span key={i} className="text-[10px] font-black uppercase tracking-widest bg-white/5 border border-white/5 text-white/40 px-3 py-1.5 rounded-lg group-hover:border-primary/10 group-hover:text-primary/60 transition-all">
-                  {feature}
-                </span>
-              ))}
-            </div>
-
-            <Button className="w-full h-16 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs group-hover:bg-primary group-hover:text-background transition-all duration-700">
-              <span>View Protocol</span>
-              <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" />
-            </Button>
-          </div>
+          <Button className="w-full h-14 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-widest text-[10px] group-hover:bg-primary group-hover:text-background group-hover:border-primary transition-all duration-500">
+            <span>View Protocol</span>
+            <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" />
+          </Button>
         </div>
       </div>
+
+      {/* Hover Glow Effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+        <div className="absolute inset-0 border-2 border-primary/30 rounded-[2.5rem]" />
+      </div>
     </motion.div>
+
   );
 }
