@@ -122,11 +122,21 @@ export default function Navigation() {
 
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center gap-4">
-              <Link to="/contact" className="hidden sm:block">
-                <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
-                  Let's Talk
-                </Button>
-              </Link>
+              <div className="hidden sm:flex flex-col items-center gap-1.5 translate-y-1.5">
+                <Link to="/contact">
+                  <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
+                    Let's Talk
+                  </Button>
+                </Link>
+                <a 
+                  href="https://www.washingtonadvert.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[9px] text-white/30 hover:text-primary transition-colors font-medium tracking-wider"
+                >
+                  Powered by Washington Advert
+                </a>
+              </div>
               
               <motion.button
                 whileTap={{ scale: 0.9 }}
