@@ -106,7 +106,7 @@ const CoursesPage = () => {
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-12 shadow-[0_0_30px_rgba(250,204,21,0.1)]"
             >
               <GraduationCap className="w-4 h-4 text-primary" />
-              <span className="text-primary text-[10px] font-black uppercase tracking-[0.4em]">Rankrise Academy v4.0</span>
+              <span className="text-primary text-[10px] font-black uppercase tracking-[0.4em]">Rankriseusa Academy v4.0</span>
             </motion.div>
             
             <h1 className="text-6xl md:text-9xl font-black text-foreground mb-12 leading-[0.85] tracking-tighter">

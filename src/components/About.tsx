@@ -113,7 +113,7 @@ export default function About() {
             </h2>
             
             <p className="text-xl text-gray-500 leading-relaxed font-medium max-w-xl">
-              RankRise USA is a high-performance digital consultancy. We merge human expertise with neural engineering to architect comprehensive ecosystems that outpace the market.
+              Rankriseusa is a high-performance digital consultancy. We merge human expertise with neural engineering to architect comprehensive ecosystems that outpace the market.
             </p>
 
             <div className="flex flex-wrap gap-6 pt-4">

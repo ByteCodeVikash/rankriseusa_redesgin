@@ -269,7 +269,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6">
-              The RankRise <span className="text-gradient-gold italic">Protocol.</span>
+              The Rankriseusa <span className="text-gradient-gold italic">Protocol.</span>
             </h2>
             <p className="text-xl text-muted-foreground font-bold">Execution with mathematical precision.</p>
           </div>

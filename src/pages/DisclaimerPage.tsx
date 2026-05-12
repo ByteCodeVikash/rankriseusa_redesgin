@@ -6,7 +6,7 @@ export default function DisclaimerPage() {
   const sections = [
     {
       title: 'General Information Purpose',
-      desc: 'The content provided on this website by RankRise USA is for general informational purposes only. While we strive to keep the information accurate, we make no representations or warranties of any kind regarding its absolute completeness or suitability.'
+      desc: 'The content provided on this website by Rankriseusa is for general informational purposes only. While we strive to keep the information accurate, we make no representations or warranties of any kind regarding its absolute completeness or suitability.'
     },
     {
       title: 'No Professional Advice',
@@ -93,7 +93,7 @@ export default function DisclaimerPage() {
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/50 transition-all duration-500">
                   <Mail className="w-6 h-6" />
                 </div>
-                <a href="mailto:hr@rankriseusa.com" className="text-sm font-black text-foreground hover:text-primary transition-colors uppercase tracking-[0.2em]">hr@rankriseusa.com</a>
+                <a href="mailto:hr@Rankriseusa.com" className="text-sm font-black text-foreground hover:text-primary transition-colors uppercase tracking-[0.2em]">hr@Rankriseusa.com</a>
               </div>
               <div className="flex flex-col items-center gap-4 group">
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/50 transition-all duration-500">

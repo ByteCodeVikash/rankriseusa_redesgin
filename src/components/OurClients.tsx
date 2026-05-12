@@ -180,8 +180,7 @@ export default function OurClients() {
           
           {/* Center Badge */}
           <div className="oc-center">
-            <span className="brand-name">Rankrise</span>
-            <span className="brand-usa">USA</span>
+            <span className="brand-name">Rankriseusa</span>
             <div className="brand-line"></div>
             <span className="brand-tag">Agency Partner</span>
           </div>

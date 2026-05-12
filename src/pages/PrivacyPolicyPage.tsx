@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
     {
       icon: Eye,
       title: 'Introduction',
-      content: 'RankRise USA ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website or use our digital marketing and IT services. It applies to all data processed by us, whether online or offline.'
+      content: 'Rankriseusa ("we", "us", "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website or use our digital marketing and IT services. It applies to all data processed by us, whether online or offline.'
     },
     {
       icon: Lock,
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div>
                   <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em] mb-2">Email Terminal</div>
-                  <a href="mailto:hr@rankriseusa.com" className="text-2xl font-black text-foreground hover:text-primary transition-colors tracking-tighter">hr@rankriseusa.com</a>
+                  <a href="mailto:hr@Rankriseusa.com" className="text-2xl font-black text-foreground hover:text-primary transition-colors tracking-tighter">hr@Rankriseusa.com</a>
                 </div>
               </div>
               <div className="flex flex-col items-center gap-6 group">

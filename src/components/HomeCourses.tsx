@@ -80,7 +80,7 @@ export default function HomeCourses() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
             >
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">RankRise Academy</span>
+              <span className="text-primary text-[10px] font-black uppercase tracking-[0.2em]">Rankriseusa Academy</span>
             </motion.div>
             
             <h2 className="text-5xl md:text-8xl font-black text-foreground leading-[0.85] tracking-tighter">

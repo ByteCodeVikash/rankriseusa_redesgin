@@ -23,9 +23,9 @@ function TopBar() {
           </div>
         </div>
         <div className="flex items-center gap-8">
-          <a href="mailto:hello@rankriseusa.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+          <a href="mailto:hello@Rankriseusa.com" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Mail className="w-3.5 h-3.5 text-primary" />
-            hello@rankriseusa.com
+            hello@Rankriseusa.com
           </a>
           <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Phone className="w-3.5 h-3.5 text-primary" />
@@ -87,7 +87,7 @@ export default function Navigation() {
               >
                 <img
                   src="/assets/images/logo1.png"
-                  alt="Rankrise USA Logo"
+                  alt="Rankriseusa Logo"
                   className="h-10 w-auto object-contain grayscale invert brightness-200 mix-blend-screen"
                 />
               </motion.div>

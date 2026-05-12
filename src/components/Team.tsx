@@ -11,50 +11,50 @@ export default function Team() {
     {
       name: 'Sarah Anderson',
       role: 'Growth Strategy',
-      email: 'sarah@rankriseusa.com',
+      email: 'sarah@Rankriseusa.com',
       phone: '+1 (202) 780-0370',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'sarah@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'sarah@Rankriseusa.com' }
     },
     {
       name: 'Samuel Smith',
       role: 'Neural Engineering',
-      email: 'sam@rankriseusa.com',
+      email: 'sam@Rankriseusa.com',
       phone: '+1 (425) 943-9223',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'sam@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'sam@Rankriseusa.com' }
     },
     {
       name: 'Sidney Miller',
       role: 'Data Intelligence',
-      email: 'sid@rankriseusa.com',
+      email: 'sid@Rankriseusa.com',
       phone: '+1 (555) 123-4569',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'sid@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'sid@Rankriseusa.com' }
     },
     {
       name: 'Meera Patel',
       role: 'Creative Director',
-      email: 'meera@rankriseusa.com',
+      email: 'meera@Rankriseusa.com',
       phone: '+1 (555) 123-4570',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'meera@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'meera@Rankriseusa.com' }
     },
     {
       name: 'Luna Chen',
       role: 'Product Architect',
-      email: 'luna@rankriseusa.com',
+      email: 'luna@Rankriseusa.com',
       phone: '+1 (555) 123-4571',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'luna@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'luna@Rankriseusa.com' }
     },
     {
       name: 'Michael Ross',
       role: 'Performance Lead',
-      email: 'mike@rankriseusa.com',
+      email: 'mike@Rankriseusa.com',
       phone: '+1 (555) 123-4572',
       gradient: 'from-[#FFD700]/20 to-transparent',
-      social: { linkedin: '#', twitter: '#', email: 'mike@rankriseusa.com' }
+      social: { linkedin: '#', twitter: '#', email: 'mike@Rankriseusa.com' }
     },
   ];
 

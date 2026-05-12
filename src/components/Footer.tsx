@@ -159,7 +159,11 @@ export default function Footer() {
           {/* Brand & Newsletter */}
           <div className="lg:col-span-4 space-y-12">
             <Link to="/" className="inline-block">
-              <img src="/assets/images/logo.png" alt="Rankrise" className="h-14 w-auto" />
+              <img 
+                src="/assets/images/logo1.png" 
+                alt="Rankriseusa" 
+                className="h-14 w-auto object-contain grayscale invert brightness-200 mix-blend-screen" 
+              />
             </Link>
             
             <p className="text-xl text-muted-foreground leading-relaxed font-medium">
@@ -267,21 +271,16 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60">
-            <span>© 2026 Rankrise Global Ltd.</span>
+            <span>© 2026 Rankriseusa Global Ltd.</span>
             <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-primary" />
             <div className="flex items-center gap-2">
               Neural Integrity <ShieldCheck className="w-3 h-3 text-primary" />
             </div>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60">Powered by</span>
-            <div className="glass-card px-4 py-2 rounded-xl border-white/5 flex items-center gap-3">
-              <span className="text-gradient-gold font-black text-xs">ADMARK NEURAL ENGINE</span>
-            </div>
-          </div>
         </div>
       </div>
     </footer>
+
   );
 }

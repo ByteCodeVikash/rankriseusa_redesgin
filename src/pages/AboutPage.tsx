@@ -30,7 +30,7 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: '2020', event: 'Initial Deployment', desc: 'RankRiseUSA founded as a high-performance SEO lab.', icon: Rocket },
+    { year: '2020', event: 'Initial Deployment', desc: 'Rankriseusa founded as a high-performance SEO lab.', icon: Rocket },
     { year: '2021', event: '$10M Impact', desc: 'Our partners crossed $10M in trackable revenue growth.', icon: TrendingUp },
     { year: '2022', event: 'Global Scaling', desc: 'Expanded operations to serve 100+ high-growth startups.', icon: Globe },
     { year: '2023', event: 'AI Integration', desc: 'Pioneered Generative Engine Optimization (GEO) protocols.', icon: Sparkles },
@@ -181,7 +181,7 @@ export default function AboutPage() {
               <span className="text-gradient-gold italic">Scale?</span>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground font-bold mb-16 max-w-2xl mx-auto">
-              Join 500+ market leaders who secured their future with the RankRise Protocol.
+              Join 500+ market leaders who secured their future with the Rankriseusa Protocol.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

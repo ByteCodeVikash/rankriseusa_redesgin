@@ -7,12 +7,12 @@ export default function TermsPage() {
     {
       id: 'agreement-overview',
       title: '1. Agreement Overview',
-      content: 'This Terms and Conditions agreement (the "Agreement") governs your use of the digital marketing and IT services (collectively, the "Services") provided by RankRise USA ("Company", "we", "us", or "our"). By accessing or using our Services, you agree to be bound by this Agreement. If you do not agree, you may not use the Services.'
+      content: 'This Terms and Conditions agreement (the "Agreement") governs your use of the digital marketing and IT services (collectively, the "Services") provided by Rankriseusa ("Company", "we", "us", or "our"). By accessing or using our Services, you agree to be bound by this Agreement. If you do not agree, you may not use the Services.'
     },
     {
       id: 'services-description',
       title: '2. Services Description',
-      content: 'RankRise USA provides digital marketing (SEO, PPC, social media management) and IT services (web development, cloud infrastructure, software maintenance). The exact scope, deliverables, and timelines will be outlined in separate Statements of Work (SOW) or proposals.'
+      content: 'Rankriseusa provides digital marketing (SEO, PPC, social media management) and IT services (web development, cloud infrastructure, software maintenance). The exact scope, deliverables, and timelines will be outlined in separate Statements of Work (SOW) or proposals.'
     },
     {
       id: 'payment-terms',
@@ -22,12 +22,12 @@ export default function TermsPage() {
     {
       id: 'intellectual-property',
       title: '4. Intellectual Property',
-      content: 'All materials provided by the Company (designs, code, reports, marketing assets) are owned by RankRise USA and licensed to you for the duration of the Service, unless otherwise agreed in writing.'
+      content: 'All materials provided by the Company (designs, code, reports, marketing assets) are owned by Rankriseusa and licensed to you for the duration of the Service, unless otherwise agreed in writing.'
     },
     {
       id: 'limitation-liability',
       title: '5. Limitation of Liability',
-      content: 'To the maximum extent permitted by law, in no event shall RankRise USA be liable for any indirect, incidental, special, consequential, or punitive damages. Our total liability shall not exceed the amount you paid us during the 12 months preceding the claim.'
+      content: 'To the maximum extent permitted by law, in no event shall Rankriseusa be liable for any indirect, incidental, special, consequential, or punitive damages. Our total liability shall not exceed the amount you paid us during the 12 months preceding the claim.'
     }
   ];
 
@@ -119,7 +119,7 @@ export default function TermsPage() {
               <p className="text-xl text-muted-foreground font-medium mb-10 relative z-10">
                 For specialized legal inquiries or compliance verification, contact our tactical terminal.
               </p>
-              <a href="mailto:hr@rankriseusa.com" className="button-premium inline-flex px-10 py-6 h-auto text-xs uppercase tracking-widest relative z-10">
+              <a href="mailto:hr@Rankriseusa.com" className="button-premium inline-flex px-10 py-6 h-auto text-xs uppercase tracking-widest relative z-10">
                 Connect With Legal HQ
               </a>
             </motion.div>

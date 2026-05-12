@@ -25,8 +25,8 @@ export default function CookiesPolicyPage() {
   ];
 
   const cookieData = [
-    { name: '__cf_bm', provider: 'RankRise (Necessary)', purpose: 'Bot Defusal & Security', duration: 'Session' },
-    { name: 'consent_pref', provider: 'RankRise', purpose: 'Stores Protocol Preferences', duration: '1 Year' },
+    { name: '__cf_bm', provider: 'Rankriseusa (Necessary)', purpose: 'Bot Defusal & Security', duration: 'Session' },
+    { name: 'consent_pref', provider: 'Rankriseusa', purpose: 'Stores Protocol Preferences', duration: '1 Year' },
     { name: '_ga', provider: 'Google Analytics', purpose: 'User Trajectory Tracking', duration: '2 Years' },
     { name: '_fbp', provider: 'Meta', purpose: 'Ad Delivery & Reporting', duration: '90 Days' }
   ];
@@ -138,7 +138,7 @@ export default function CookiesPolicyPage() {
               <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/50 transition-all duration-500">
                 <Mail className="w-6 h-6" />
               </div>
-              <a href="mailto:hr@rankriseusa.com" className="text-sm font-black text-foreground hover:text-primary transition-colors uppercase tracking-[0.2em]">hr@rankriseusa.com</a>
+              <a href="mailto:hr@Rankriseusa.com" className="text-sm font-black text-foreground hover:text-primary transition-colors uppercase tracking-[0.2em]">hr@Rankriseusa.com</a>
             </div>
             <div className="flex flex-col items-center gap-4 group">
               <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:border-primary/50 transition-all duration-500">

@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Link } from 'react-router-dom';
+import AnmlServices from './AnmlServices';
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -138,7 +139,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-[#05070a]">
+    <section id="services" className="py-24 relative overflow-visible bg-[#05070a]">
       {/* Cinematic Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2" />
@@ -185,7 +186,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
@@ -200,7 +201,12 @@ export default function Services() {
           ))}
         </div>
 
+        {/* ANML Style Services Section */}
+        <AnmlServices />
+
         {/* Custom Solution Banner */}
+
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

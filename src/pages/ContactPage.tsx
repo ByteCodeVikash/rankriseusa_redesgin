@@ -112,7 +112,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Electronic Mail</div>
-                      <div className="text-xl font-black text-foreground">intel@rankrise.ai</div>
+                      <div className="text-xl font-black text-foreground">intel@Rankriseusa.ai</div>
                     </div>
                   </div>
                 </div>

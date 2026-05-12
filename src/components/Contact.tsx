@@ -32,7 +32,7 @@ export default function Contact() {
     { 
       icon: Mail, 
       label: 'Secure Inquiry', 
-      value: 'sid.rankriseusa@gmail.com',
+      value: 'sid.Rankriseusa@gmail.com',
       subtext: 'End-to-end encrypted protocol',
     },
     { 
@@ -91,7 +91,7 @@ export default function Contact() {
             <div className="space-y-8">
               <h3 className="text-4xl font-black text-foreground tracking-tight leading-none">Global Reach. <br /><span className="text-primary/70">Surgical Execution.</span></h3>
               <p className="text-muted-foreground font-medium leading-relaxed text-xl">
-                Whether you're looking for AI-powered SEO systems or enterprise-grade software development, RankRiseUSA delivers market-dominating results.
+                Whether you're looking for AI-powered SEO systems or enterprise-grade software development, Rankriseusa delivers market-dominating results.
               </p>
             </div>
 
