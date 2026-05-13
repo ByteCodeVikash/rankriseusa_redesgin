@@ -61,7 +61,7 @@ export default function Navigation() {
     { name: 'Services', path: '/services' },
     { name: 'Courses', path: '/courses' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Pricing', path: '/pricing' },
+    { name: 'Pricing', path: '/price' },
     { name: 'About Us', path: '/about' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
@@ -101,11 +101,10 @@ export default function Navigation() {
                     className="relative px-4 py-2 group"
                   >
                     <span
-                      className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${
-                        location.pathname === item.path
+                      className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${location.pathname === item.path
                           ? 'text-primary'
                           : 'text-white/70 group-hover:text-primary'
-                      }`}
+                        }`}
                     >
                       {item.name}
                     </span>
@@ -128,16 +127,16 @@ export default function Navigation() {
                     Let's Talk
                   </Button>
                 </Link>
-                <a 
-                  href="https://www.washingtonadvert.com/" 
-                  target="_blank" 
+                <a
+                  href="https://www.washingtonadvert.com/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-[9px] text-white/30 hover:text-primary transition-colors font-medium tracking-wider"
                 >
                   Powered by Washington Advert
                 </a>
               </div>
-              
+
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 className="lg:hidden p-2 text-white"
@@ -167,11 +166,10 @@ export default function Navigation() {
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`text-2xl font-bold p-5 rounded-2xl transition-all ${
-                    location.pathname === item.path
+                  className={`text-2xl font-bold p-5 rounded-2xl transition-all ${location.pathname === item.path
                       ? 'text-primary bg-primary/10 border-2 border-primary/20'
                       : 'text-foreground hover:bg-muted'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </motion.div>

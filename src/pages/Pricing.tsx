@@ -6,7 +6,7 @@ import {
   X, Check, Shield, CreditCard, Smartphone, Cloud, Database,
   Globe, Lock, PenTool, Star, Rocket, Crown, Zap, Briefcase,
   TrendingUp, Users, Settings, HardDrive, Cpu, ArrowRight,
-  ShieldCheck, ZapOff, Layers, Activity
+  ShieldCheck, ZapOff, Layers, Activity, Plus, Clock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { submitToSheet } from '@/lib/utils';
@@ -694,8 +694,8 @@ export default function PricingPage() {
             <ShieldCheck className="w-4 h-4 text-primary" />
             <span className="text-primary text-[10px] font-black uppercase tracking-[0.3em]">Neural Investment Framework v4.2</span>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -704,19 +704,19 @@ export default function PricingPage() {
             Growth <br />
             <span className="text-gradient-gold italic">Architectures.</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl text-muted-foreground font-medium max-w-3xl mx-auto mb-16 leading-relaxed"
           >
-            Transparent, performance-indexed pricing models engineered for 
+            Transparent, performance-indexed pricing models engineered for
             global brands demanding unfair competitive advantages.
           </motion.p>
 
           {/* Duration Selector */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
@@ -730,9 +730,8 @@ export default function PricingPage() {
                   <button
                     key={dur}
                     onClick={() => setDuration(dur)}
-                    className={`relative px-8 py-4 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-                      isActive ? 'text-background' : 'text-foreground/50 hover:text-foreground'
-                    }`}
+                    className={`relative px-8 py-4 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${isActive ? 'text-background' : 'text-foreground/50 hover:text-foreground'
+                      }`}
                   >
                     {isActive && (
                       <motion.div
@@ -763,14 +762,13 @@ export default function PricingPage() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-4 px-8 py-5 rounded-2xl glass-card border-white/5 transition-all group relative overflow-hidden ${
-                  selectedCategory === category.id 
-                  ? 'border-primary/50 bg-primary/[0.03]' 
+                className={`flex items-center gap-4 px-8 py-5 rounded-2xl glass-card border-white/5 transition-all group relative overflow-hidden ${selectedCategory === category.id
+                  ? 'border-primary/50 bg-primary/[0.03]'
                   : 'hover:border-white/20'
-                }`}
+                  }`}
               >
                 {selectedCategory === category.id && (
-                  <motion.div 
+                  <motion.div
                     layoutId="active-cat-bg"
                     className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"
                   />
@@ -786,7 +784,7 @@ export default function PricingPage() {
 
         {/* Pricing Grid */}
         <AnimatePresence mode="wait">
-          <motion.div 
+          <motion.div
             key={selectedCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -803,9 +801,8 @@ export default function PricingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`glass-card rounded-[3rem] p-10 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${
-                    plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
-                  }`}
+                  className={`glass-card rounded-[3rem] p-10 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
+                    }`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 rounded-full bg-primary text-background text-[9px] font-black uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(var(--primary),0.4)] whitespace-nowrap">
@@ -864,11 +861,10 @@ export default function PricingPage() {
                     )}
                   </div>
 
-                  <Button 
+                  <Button
                     onClick={() => openModal(plan, selectedCategory)}
-                    className={`w-full h-16 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] group overflow-hidden relative ${
-                      plan.popular ? 'button-premium' : 'bg-white/5 hover:bg-white/10 text-foreground border border-white/10'
-                    }`}
+                    className={`w-full h-16 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] group overflow-hidden relative ${plan.popular ? 'button-premium' : 'bg-white/5 hover:bg-white/10 text-foreground border border-white/10'
+                      }`}
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       Initialize Protocol
@@ -900,14 +896,14 @@ export default function PricingPage() {
               onClick={closeModal}
               className="absolute inset-0 bg-background/95 backdrop-blur-3xl"
             />
-            
+
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
               className="relative w-full max-w-5xl glass-card rounded-[3rem] border-white/10 overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
             >
-              <button 
+              <button
                 onClick={closeModal}
                 className="absolute top-10 right-10 p-4 rounded-2xl bg-white/5 border border-white/10 text-foreground hover:bg-primary hover:text-background transition-all z-20 group"
               >
