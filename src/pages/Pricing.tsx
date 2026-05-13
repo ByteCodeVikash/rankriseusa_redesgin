@@ -45,6 +45,8 @@ export default function PricingPage() {
     technology: '',
     features: ''
   });
+  const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
+
 
   // small helper to format currency
   function fmtCurrency(n: number) {
@@ -66,15 +68,91 @@ export default function PricingPage() {
     seo: [
       {
         name: 'BASIC',
-        monthlyPrice: 500,
+        monthlyPrice: 400,
         popular: false,
         features: [
-          'No. of Keywords – 30',
-          'Landing Pages – 5',
-          'Backlinks (per month) – 90',
-          'GBP (GMB) – ✘',
+          'No. of Keywords – 20',
+          'Landing Pages – 3',
+          'Backlinks (per month) – 100',
+
+          '---First Hand SEO Analysis',
+          'Pre-Optimization Website Analysis – ✓',
+          'Competitor Analysis – ✓',
+          'Keyword Research & Analysis – ✓',
+          'Baseline Ranking Check – ✓',
+          'Duplicate Content Check – ✓',
+          'Google Penalty Check – ✓',
+
+          '---On Page Optimization Activities',
+          'Website Canonical Check – ✓',
+          'Title Tag Optimization – ✓',
+          'META Tags Optimization – ✓',
+          'Image Alt Tags Optimization – ✓',
+          'Content Optimization – ✓',
+          'SEO Friendly URL Setup – ✓',
+          '404 Page Implementation – ✓',
+          'Website Speed Check – ✓',
+          'Google Indexed Pages Check – ✓',
+          'Robots.txt Creation – ✓',
+          'Google XML Sitemap – ✓',
+          'Google Webmasters Tool Setup – ✓',
+          'Google Analytics Setup – ✓',
+          'On Site Blog Section Creation – ✓',
+          'On Site Blog Posting (Draft Copy) | Applicable from 3rd month',
+
+          '--- Off-page Optimization Activities',
+          'Search Engine Submission – 10',
+          'Article Writing – 1',
+          'Article Posting – 1',
+          'Article Bookmarking – 10',
+          'Classified Submissions – 10',
+          'Business Listing – 5',
+          'Blog Writing – 1',
+          'Blog Posting – 1',
+          'Blog Bookmarking – 10',
+          'On page Blog – 1',
+          'On Page Blog Bookmarking – 5',
+          'Image Sharing – 5',
+          'PPT Submissions – 1',
+          'PPT Bookmarking – 10',
+          'Social Bookmarking – 30',
+          'PDF Sharing – 1',
+          'PDF Bookmarking – 5',
+          'Profile Creation – 5',
+          'Quora Answering – 1',
+          'Info Graphic Creation – 1',
+          'Info Graphic Bookmarking – 5',
+          'Video Marketing (if Client provides) – ✓',
+          'Press Release (If Client Provides News) – ✓',
+
+          '---SMO Activities',
+          'Facebook ✘',
+          'Instagram ✘',
+          'Twitter ✘',
+          'Pinterest ✘',
+
+          '--- Reports',
+          'Monthly Website Analytics Report – ✓',
+          'Monthly Keywords Ranking Report – ✓',
+          'Monthly Off Page Submission Report – ✓',
+
+          '--- Customer Support',
+          'Email – ✓',
+          'Phone – ✓',
+          'Chat – ✓'
+        ]
+      },
+      {
+        name: 'STARTUP',
+        monthlyPrice: 550,
+        popular: false,
+        features: [
+          'No. of Keywords – 20',
+          'Landing Pages – 3',
+          'Backlinks (per month) – 100',
+          'GBP (GMB) – ✓',
           'Geotagging – ✘',
-          'First Hand SEO Analysis – ✓',
+          '---First Hand SEO Analysis--–',
           'Pre-Optimization Website Analysis – ✓',
           'Competitor Analysis – ✓',
           'Keyword Research & Analysis – ✓',
@@ -104,38 +182,38 @@ export default function PricingPage() {
           'On Site Blog Section Creation – ✓',
           'On Site Blog Posting (Draft Copy) – Applicable from 3rd month – 1',
           '--- Off-page Optimization ---',
-          'Search Engine Submission – 10',
-          'Article Writing – 1',
-          'Article Posting – 1',
-          'Article Bookmarking – 10',
-          'Classified Submissions – 10',
-          'Business Listing – 5',
-          'Blog Writing – 1',
-          'Blog Posting – 1',
-          'Blog Bookmarking – 10',
-          'On page Blog – 1',
-          'On Page Blog Bookmarking – 5',
-          'Image sharing – 5',
-          'PPT Submissions – 1',
-          'PPT Bookmarking – 10',
-          'Social Bookmarking – 30',
-          'PDF Sharing – 1',
-          'PDF bookmarking – 5',
-          'Profile Creation – 5',
-          'Quora Answering – 1',
-          'Info Graphic Creation – 1',
-          'Info Graphic Bookmarking – 5',
+          'Search Engine Submission – 20',
+          'Article Writing – 2',
+          'Article Posting – 2',
+          'Article Bookmarking – 20',
+          'Classified Submissions – 20',
+          'Business Listing – 6',
+          'Blog Writing – 2',
+          'Blog Posting – 2',
+          'Blog Bookmarking – 20',
+          'On page Blog – 2',
+          'On Page Blog Bookmarking – 10',
+          'Image sharing – 10',
+          'PPT Submissions – 2',
+          'PPT Bookmarking – 20',
+          'Social Bookmarking – 40',
+          'PDF Sharing – 2',
+          'PDF bookmarking – 6',
+          'Profile Creation – 6',
+          'Quora Answering – 2',
+          'Info Graphic Creation – 2',
+          'Info Graphic Bookmarking – 10',
           'Video Marketing (if Client provides) – ✓',
           'Press Release (If Client Provides News) – ✓',
-          '--- SMO (not included) ---',
-          'Facebook Profile Creation – ✘',
-          'Facebook Fan Page Creation – ✘',
-          'Facebook Posting & Sharing – ✘',
-          'Instagram Business Profile Creation – ✘',
-          'Creation of Interactive Branded Hashtag – ✘',
-          'Instagram Posting – ✘',
-          'Twitter Profile Creation – ✘',
-          'Twitter Post – ✘',
+          '--- SMO ---',
+          'Facebook Profile Creation – ✓',
+          'Facebook Fan Page Creation – ✓',
+          'Facebook Posting & Sharing – 4',
+          'Instagram Business Profile Creation – ✓',
+          'Creation of Interactive Branded Hashtag – ✓',
+          'Instagram Posting – 4',
+          'Twitter Profile Creation – ✓',
+          'Twitter Post – 4',
           'Pinterest Account Creation/Management – ✘',
           'Pinterest Followers – ✘',
           'Updating of pin boards – ✘',
@@ -151,12 +229,12 @@ export default function PricingPage() {
         ]
       },
       {
-        name: 'STARTUP',
+        name: 'PROFESSIONAL',
         monthlyPrice: 800,
-        popular: false,
+        popular: true, // best seller
         features: [
-          'No. of Keywords – 40',
-          'Landing Pages – 10',
+          'No. of Keywords – 30',
+          'Landing Pages – 5',
           'Backlinks (per month) – 120',
           'GBP (GMB) – ✓',
           'Geotagging – ✘',
@@ -237,94 +315,8 @@ export default function PricingPage() {
         ]
       },
       {
-        name: 'PROFESSIONAL',
-        monthlyPrice: 1000,
-        popular: true, // best seller
-        features: [
-          'No. of Keywords – 50',
-          'Landing Pages – 15',
-          'Backlinks (per month) – 150',
-          'GBP (GMB) – ✓',
-          'Geotagging – ✓',
-          'First Hand SEO Analysis – ✓',
-          'Pre-Optimization Website Analysis – ✓',
-          'Competitor Analysis – ✓',
-          'Keyword Research & Analysis – ✓',
-          'Baseline Ranking Check – ✓',
-          'Duplicate Content Check – ✓',
-          'Google Penalty Check – ✓',
-          'Back Link Analysis (If required) – ✓',
-          '--- On-page Optimization ---',
-          'Website Canonical Check – ✓',
-          'Title Tag Optimization – ✓',
-          'META Tags Optimization – ✓',
-          'Heading Tags Optimization – ✓',
-          'Image Alt Tags Optimization – ✓',
-          'Content Optimization – ✓',
-          'SEO Friendly URL Setup – ✓',
-          'Site Navigation Analysis – ✓',
-          '404 Page Implementation – ✓',
-          'Broken Links Check – ✓',
-          'Website Speed Check – ✓',
-          'Google Indexed Pages Check – ✓',
-          'Robots.txt Creation – ✓',
-          'Google XML Sitemap – ✓',
-          'php Sitemap Setup – ✘',
-          'Google Webmasters Tool Setup – ✓',
-          'Google Analytics Setup – ✓',
-          'Structured Data Setup – ✘',
-          'On Site Blog Section Creation – ✓',
-          'On Site Blog Posting (Draft Copy) – Applicable from 3rd month – 2',
-          '--- Off-page Optimization ---',
-          'Search Engine Submission – 30',
-          'Article Writing – 3',
-          'Article Posting – 3',
-          'Article Bookmarking – 30',
-          'Classified Submissions – 30',
-          'Business Listing – 7',
-          'Blog Writing – 3',
-          'Blog Posting – 3',
-          'Blog Bookmarking – 30',
-          'On page Blog – 3',
-          'On Page Blog Bookmarking – 15',
-          'Image sharing – 15',
-          'PPT Submissions – 3',
-          'PPT Bookmarking – 30',
-          'Social Bookmarking – 50',
-          'PDF Sharing – 3',
-          'PDF bookmarking – 15',
-          'Profile Creation – 7',
-          'Quora Answering – 3',
-          'Info Graphic Creation – 3',
-          'Info Graphic Bookmarking – 15',
-          'Video Marketing (if Client provides) – ✓',
-          'Press Release (If Client Provides News) – ✓',
-          '--- SMO ---',
-          'Facebook Profile Creation – ✓',
-          'Facebook Fan Page Creation – ✓',
-          'Facebook Posting & Sharing – 8',
-          'Instagram Business Profile Creation – ✓',
-          'Creation of Interactive Branded Hashtag – ✓',
-          'Instagram Posting – 8',
-          'Twitter Profile Creation – ✓',
-          'Twitter Post – 8',
-          'Pinterest Account Creation/Management – ✓',
-          'Pinterest Followers – ✓',
-          'Updating of pin boards – 4',
-          'Pins – ✓',
-          '--- Reports ---',
-          'Monthly Website Analytics Report – ✓',
-          'Monthly Keywords Ranking Report – ✓',
-          'Monthly Off Page Submission Report – ✓',
-          '--- Customer Support ---',
-          'Email – ✓',
-          'Phone – ✓',
-          'Chat – ✓'
-        ]
-      },
-      {
         name: 'ENTERPRISE',
-        monthlyPrice: 1500,
+        monthlyPrice: 1100,
         popular: false,
         features: [
           'No. of Keywords – 75',
@@ -410,7 +402,7 @@ export default function PricingPage() {
       },
       {
         name: 'MASTER',
-        monthlyPrice: 2000,
+        monthlyPrice: 1800,
         popular: false,
         features: [
           'No. of Keywords – 100',
@@ -660,7 +652,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16 relative overflow-hidden">
+    <div className="min-h-screen bg-gray-950 pt-24 pb-16 relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] -z-10" />
@@ -669,17 +661,17 @@ export default function PricingPage() {
       <div className="hidden lg:block">
         <Link
           to="/custom-plan"
-          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-2xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-pink-700 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
         >
-          <Sparkles className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" />
-          <span className="[writing-mode:vertical-lr] rotate-180 uppercase tracking-widest">Custom Plan</span>
+          {/* <Sparkles className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
+          <span className="uppercase tracking-widest">Custom Plan</span>
         </Link>
         <Link
           to="/cost-calculator"
-          className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-2xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+          className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-blue-500 backdrop-blur-xl border border-white/10 text-foreground px-4 py-3 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
         >
-          <Calculator className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" />
-          <span className="[writing-mode:vertical-lr] uppercase tracking-widest">Cost Calculator</span>
+          {/* <Calculator className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
+          <span className="uppercase tracking-widest">Cost Calculator</span>
         </Link>
       </div>
 
@@ -794,6 +786,7 @@ export default function PricingPage() {
             {pricingData[selectedCategory]?.map((plan, index) => {
               const isFixed = !plan.isCustom;
               const total = isFixed ? getTotalPrice(plan.monthlyPrice!) : null;
+              const isExpanded = expandedPlan === plan.name;
               return (
                 <motion.div
                   key={plan.name}
@@ -801,7 +794,7 @@ export default function PricingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`glass-card rounded-[3rem] p-10 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
+                  className={`glass-card rounded-[2rem] p-8 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
                     }`}
                 >
                   {plan.popular && (
@@ -843,21 +836,66 @@ export default function PricingPage() {
                   )}
 
                   <div className="space-y-5 mb-12 flex-grow">
-                    {plan.features?.slice(0, 10).map((feat, i) => (
-                      <div key={i} className="flex items-start gap-4">
-                        <div className="mt-1 w-5 h-5 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                          <Check className="w-3 h-3 text-primary" />
-                        </div>
-                        <span className="text-xs font-bold text-foreground/80 leading-relaxed">
-                          {feat.replace(' – ✓', '').replace(' – ✘', '')}
-                        </span>
+                    {(isExpanded
+                      ? plan.features
+                      : plan.features?.slice(0, 10)
+                    ).map((feat, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-center justify-between gap-4 py-2 border-b border-white/5 ${feat.startsWith('---')
+                          ? 'mt-5 pt-5 border-t border-primary/20 border-b-0'
+                          : ''
+                          }`}
+                      >
+                        {feat.startsWith('---') ? (
+                          <div className="w-full px-1 py-1 text-[10px] uppercase tracking-[0.25em] font-black text-primary shadow-[0_0_20px_rgba(var(--primary),0.08)]">
+                            {feat.replace(/---/g, '')}
+                          </div>
+                        ) : (
+                          <>
+                            <span className="text-xs font-medium text-foreground/80 leading-relaxed">
+                              {feat
+                                .replace(' – ✓', '')
+                                .replace(' – ✘', '')
+                                .replace(' ✘', '')}
+                            </span>
+
+                            {feat.includes('✓') ? (
+                              <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                            ) : feat.includes('✘') ? (
+                              <X className="w-4 h-4 text-red-400 flex-shrink-0" />
+                            ) : (
+                              <span className="text-xs font-black text-primary flex-shrink-0">
+                                {feat.split(' – ')[1]}
+                              </span>
+                            )}
+                          </>
+                        )}
                       </div>
                     ))}
                     {(plan.features?.length ?? 0) > 10 && (
-                      <div className="text-[9px] font-black text-primary uppercase tracking-[0.3em] pt-4 pl-9 flex items-center gap-2">
-                        <Plus className="w-3 h-3" />
-                        {(plan.features?.length ?? 0) - 10} Advanced Metrics
-                      </div>
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedPlan(
+                              isExpanded ? null : plan.name
+                            )
+                          }
+                          className="mt-4 ml-9 md:ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/10"
+                        >
+                          <Plus
+                            className={`h-3 w-3 transition-transform ${isExpanded ? "rotate-45" : ""
+                              }`}
+                          />
+
+                          {isExpanded
+                            ? "Hide Metrics"
+                            : `${(plan.features?.length ?? 0) - 10} Advanced Metrics`}
+                        </button>
+
+
+                      </>
                     )}
                   </div>
 
@@ -901,7 +939,7 @@ export default function PricingPage() {
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
-              className="relative w-full max-w-5xl glass-card rounded-[3rem] border-white/10 overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
+              className="relative w-full max-w-5xl glass-card rounded-[3em] border-white/10 overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)]"
             >
               <button
                 onClick={closeModal}
