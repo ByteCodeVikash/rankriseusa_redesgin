@@ -102,6 +102,53 @@
     transform: translateY(-4px);
     background: #FACC15;
   }
+
+  /* Digiqlik-inspired Utilities */
+  .digi-grid {
+    background-color: #ffffff;
+    background-image: 
+      linear-gradient(#f0f0f0 1px, transparent 1px),
+      linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .project-card-premium {
+    @apply bg-white rounded-[2rem] overflow-hidden transition-all duration-500;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  }
+
+  .project-card-premium:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .pill-button {
+    @apply px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 border;
+  }
+
+  .pill-button-active {
+    @apply bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20;
+  }
+
+  .pill-button-inactive {
+    @apply bg-white text-gray-500 border-gray-200 hover:border-primary/50 hover:text-primary;
+  }
+
+  .pill-button-dark-active {
+    @apply bg-primary text-primary-foreground border-primary shadow-[0_0_20px_rgba(250,204,21,0.3)];
+  }
+
+  .pill-button-dark-inactive {
+    @apply bg-white/5 text-muted-foreground border-white/10 hover:border-primary/50 hover:text-primary;
+  }
+
+  .glass-card-premium {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-500;
+  }
+
+  .glass-card-premium:hover {
+    @apply border-primary/30 bg-white/[0.08];
+  }
 }
 
 /* Custom Scrollbar */
