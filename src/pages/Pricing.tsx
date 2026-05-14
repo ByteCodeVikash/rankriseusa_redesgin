@@ -17,6 +17,7 @@ interface PricingPlan {
   name: string;
   icon?: string;
   monthlyPrice?: number;        // undefined for custom quote
+  yearlyPrice?: number;        // undefined for custom quote
   isCustom?: boolean;
   description?: string;
   popular?: boolean;
@@ -45,7 +46,7 @@ export default function PricingPage() {
     technology: '',
     features: ''
   });
-  const [expandedPlan, setExpandedPlan] = useState<string | null>(null);
+  const [isAllExpanded, setIsAllExpanded] = useState(false);
 
 
   // small helper to format currency
@@ -602,10 +603,102 @@ export default function PricingPage() {
 
     // PPC + Meta Ads (fixed plans)
     ppc: [
-      { name: 'BASIC', monthlyPrice: 300, popular: false, features: ['Setup Fee – $200', 'Ad Budget up to $1000/month', '1 Full Optimization/month', 'Up to 5 Ad Groups'] },
-      { name: 'SILVER', monthlyPrice: 400, popular: false, features: ['Setup Fee – $350', 'Ad Budget up to $2000/month', '2 Optimizations/month', 'Up to 10 Ad Groups'] },
-      { name: 'GOLD', monthlyPrice: 600, popular: true, features: ['Setup Fee – $500', 'Ad Budget up to $3000/month', '3 Optimizations/month', 'Up to 20 Ad Groups'] },
-      { name: 'PREMIUM', monthlyPrice: 800, popular: false, features: ['Setup Fee – $750', 'Ad Budget above $3000/month', '5 Optimizations/month', 'Up to 40 Ad Groups'] }
+      {
+        name: 'BASIC',
+        monthlyPrice: 339,
+        popular: false,
+        features: [
+          'Setup Fee – $200',
+          'Advertising Budget – $0-$2999/M',
+          'Full Optimization – 1/M',
+          'Ad Groups – Up to 5',
+          'Ads per Group – Up to 2 Ads',
+          'Keywords – Up to 50',
+          'Negative Keywords – ✓',
+          'Conversion Tracking – ✓',
+          'Monthly Reporting – ✓',
+          'No Contracts – ✓',
+          'Ad Networks – Google Network',
+          'Mobile Ads – ✘',
+          'Call Extension – ✓',
+          'Sitelink Extension – ✓',
+          'Remarketing – ✘',
+          'Monthly Conference Calls – ✘',
+          'Display/Image Ads – ✘'
+        ]
+      },
+      {
+        name: 'PPC-SERIOUS',
+        monthlyPrice: 439,
+        popular: false,
+        features: [
+          'Setup Fee – $350',
+          'Advertising Budget – $3000-$4999/M',
+          'Full Optimization – 2/M',
+          'Ad Groups – Up to 10',
+          'Ads per Group – Up to 3 Ads',
+          'Keywords – Up to 100',
+          'Negative Keywords – ✓',
+          'Conversion Tracking – ✓',
+          'Monthly Reporting – ✓',
+          'No Contracts – ✓',
+          'Ad Networks – Google Network',
+          'Mobile Ads – ✘',
+          'Call Extension – ✓',
+          'Sitelink Extension – ✓',
+          'Remarketing – ✓',
+          'Monthly Conference Calls – ✓',
+          'Display/Image Ads – ✘'
+        ]
+      },
+      {
+        name: 'PPC-STRATEGY',
+        monthlyPrice: 639,
+        popular: false,
+        features: [
+          'Setup Fee – $500',
+          'Advertising Budget – $5000-$7500/M',
+          'Full Optimization – 3/M',
+          'Ad Groups – Up to 20',
+          'Ads per Group – Up to 4 Ads',
+          'Keywords – Up to 200',
+          'Negative Keywords – ✓',
+          'Conversion Tracking – ✓',
+          'Monthly Reporting – ✓',
+          'No Contracts – ✓',
+          'Ad Networks – Google Network',
+          'Mobile Ads – ✘',
+          'Call Extension – ✓',
+          'Sitelink Extension – ✓',
+          'Remarketing – ✓',
+          'Monthly Conference Calls – ✓',
+          'Display/Image Ads – ✘'
+        ]
+      },
+      {
+        name: 'PPC-STERIOD',
+        monthlyPrice: 939,
+        popular: false,
+        features: [
+          'Setup Fee – $750',
+          'Advertising Budget – $7500-$10000/M',
+          'Full Optimization – 5/M',
+          'Ad Groups – Up to 40',
+          'Ads per Group – Up to 6 Ads',
+          'Keywords – Up to 750',
+          'Negative Keywords – ✓',
+          'Conversion Tracking – ✓',
+          'Monthly Reporting – ✓',
+          'No Contracts – ✓',
+          'Ad Networks – Google, Yahoo, Bing & FB',
+          'Mobile Ads – ✓',
+          'Call Extension – ✓',
+          'Sitelink Extension – ✓',
+          'Remarketing – ✓',
+          'Monthly Conference Calls – ✓',
+          'Display/Image Ads – Up to 2 Ads/M'
+        ]
+      }
     ],
 
     // ORM (fixed plans)
@@ -618,10 +711,170 @@ export default function PricingPage() {
     // Web Development (custom quote)
     'web-dev': [
       {
-        name: 'Custom Web Development',
-        isCustom: true,
-        description: 'Tailored websites and web applications built with modern technologies (React, Node.js, PHP, etc.). We create everything from simple landing pages to complex portals.',
-        features: ['Responsive design', 'SEO friendly', 'CMS integration', 'E-commerce solutions', 'API development']
+        name: 'Web Essential',
+        yearlyPrice: 999,
+        popular: false,
+        features: [
+          'Dynamic Website – ✓',
+          'Website Pages – Up to 10 – ✓',
+          'New Domain (Optional) – ✓',
+          'New Logo Design – ✘',
+          'AI Chat Feature – ✘',
+          'Web Hosting – ✓',
+          'SEO Friendly Website – ✓',
+          'Website Pages Content – ✓',
+          'SEO Keywords Research – ✓',
+          'Competitor Analysis Report – ✘',
+          'Explainer Video – ✘',
+          'Customized Contact Form (Leads) – ✘',
+          'Stock Images – ✓',
+          'Premium Support (SSL) – ✓',
+          'Advanced Site Security – ✘',
+          '5 Hosted Domain Emails – ✓',
+          'Daily Backup – ✘',
+          'Unlimited Bandwidth – ✓',
+          'Unlimited Databases – ✓',
+          'Dedicated Resources – ✓',
+          'Dedicated IP – ✓',
+          '99.9% Uptime Guarantee – ✓',
+          'User Friendly Admin Panel – ✓',
+          'Web Maintenance – 50 Hours/Year – ✓',
+          'Responsive Site (Desktop, Tablet, Mobile) – ✓',
+          '5 Business Profile Creation – ✓',
+          'Social Media Profile Creation – ✘',
+          'Social Media Profile Linking – ✘',
+          'Google Analytics Tracking – ✓',
+          'Google Search Console Tracking – ✓',
+          'Google Ecommerce Tracking – ✘',
+          'Payment Gateway Integration – ✘',
+          'Email/Chat Support – ✓',
+          'Dedicated Account Manager – ✘',
+          'Quarterly Website Progress Report – ✘'
+        ]
+      },
+      {
+        name: 'Web Advanced',
+        yearlyPrice: 1999,
+        popular: true,
+        features: [
+          'Ultra Dynamic Website – ✓',
+          'Website Pages – Up to 15 – ✓',
+          'New Domain (Optional) – ✓',
+          'New Logo Design – ✓',
+          'AI Chat Feature – ✓',
+          'Web Hosting – ✓',
+          'SEO Friendly Website – ✓',
+          'Website Pages Content – ✓',
+          'SEO Keywords Research – ✓',
+          'Competitor Analysis Report – ✘',
+          'Explainer Video – ✘',
+          'Customized Contact Form (Leads) – ✘',
+          'Stock Images – ✓',
+          'Premium Support (SSL) – ✓',
+          'Advanced Site Security – ✘',
+          '5 Hosted Domain Emails – ✓',
+          'Daily Backup – ✓',
+          'Unlimited Bandwidth – ✓',
+          'Unlimited Databases – ✓',
+          'Dedicated Resources – ✓',
+          'Dedicated IP – ✓',
+          '99.9% Uptime Guarantee – ✓',
+          'User Friendly Admin Panel – ✓',
+          'Web Maintenance – 100 Hours/Year – ✓',
+          'Responsive Site (Desktop, Tablet, Mobile) – ✘',
+          '5 Business Profile Creation – ✓',
+          'Social Media Profile Creation – ✓',
+          'Social Media Profile Linking – ✓',
+          'Google Analytics Tracking – ✓',
+          'Google Search Console Tracking – ✓',
+          'Google Ecommerce Tracking – ✘',
+          'Payment Gateway Integration – ✘',
+          'Email/Chat Support – ✓',
+          'Dedicated Account Manager – ✘',
+          'Quarterly Website Progress Report – ✘'
+        ]
+      }, {
+        name: 'Web Professional',
+        yearlyPrice: 2999,
+        popular: false,
+        features: [
+          'Custom Website – ✓',
+          'Website Pages – Up to 20 – ✓',
+          'New Domain (Optional) – ✓',
+          'New Logo Design – ✓',
+          'AI Chat Feature – ✓',
+          'Web Hosting – ✓',
+          'SEO Friendly Website – ✓',
+          'Website Pages Content – ✓',
+          'SEO Keywords Research – ✓',
+          'Competitor Analysis Report – ✓',
+          'Explainer Video – ✓',
+          'Customized Contact Form (Leads) – ✓',
+          'Stock Images – ✓',
+          'Premium Support (SSL) – ✓',
+          'Advanced Site Security – ✓',
+          '5 Hosted Domain Emails – ✓',
+          'Daily Backup – ✓',
+          'Unlimited Bandwidth – ✓',
+          'Unlimited Databases – ✓',
+          'Dedicated Resources – ✓',
+          'Dedicated IP – ✓',
+          '99.9% Uptime Guarantee – ✓',
+          'User Friendly Admin Panel – ✓',
+          'Web Maintenance – 150 Hours/Year – ✓',
+          'Responsive Site (Desktop, Tablet, Mobile) – ✘',
+          '5 Business Profile Creation – ✓',
+          'Social Media Profile Creation – ✓',
+          'Social Media Profile Linking – ✓',
+          'Google Analytics Tracking – ✓',
+          'Google Search Console Tracking – ✓',
+          'Google Ecommerce Tracking – ✓',
+          'Payment Gateway Integration – ✓',
+          'Email/Chat Support – ✓',
+          'Dedicated Account Manager – ✓',
+          'Quarterly Website Progress Report – ✓'
+        ]
+      }, {
+        name: 'Web Enterprise',
+        yearlyPrice: 3999,
+        popular: true,
+        features: [
+          'Ultra Custom Website – ✓',
+          'Website Pages – Up to 25 – ✓',
+          'New Domain (Optional) – ✓',
+          'New Logo Design – ✓',
+          'AI Chat Feature – ✓',
+          'Web Hosting – ✓',
+          'SEO Friendly Website – ✓',
+          'Website Pages Content – ✓',
+          'SEO Keywords Research – ✓',
+          'Competitor Analysis Report – ✓',
+          'Explainer Video – ✓',
+          'Customized Contact Form (Leads) – ✓',
+          'Stock Images – ✓',
+          'Premium Support (SSL) – ✓',
+          'Advanced Site Security – ✓',
+          '5 Hosted Domain Emails – ✓',
+          'Daily Backup – ✓',
+          'Unlimited Bandwidth – ✓',
+          'Unlimited Databases – ✓',
+          'Dedicated Resources – ✓',
+          'Dedicated IP – ✓',
+          '99.9% Uptime Guarantee – ✓',
+          'User Friendly Admin Panel – ✓',
+          'Web Maintenance – 200 Hours/Year – ✓',
+          'Responsive Site (Desktop, Tablet, Mobile) – ✓',
+          '5 Business Profile Creation – ✓',
+          'Social Media Profile Creation – ✓',
+          'Social Media Profile Linking – ✓',
+          'Google Analytics Tracking – ✓',
+          'Google Search Console Tracking – ✓',
+          'Google Ecommerce Tracking – ✓',
+          'Payment Gateway Integration – ✓',
+          'Email/Chat Support – ✓',
+          'Dedicated Account Manager – ✓',
+          'Quarterly Website Progress Report – ✓'
+        ]
       }
     ],
 
@@ -745,15 +998,20 @@ export default function PricingPage() {
       features: formData.features,
       plan: selectedPlan?.name ?? '',
       category: selectedPlan?.category ?? '',
-      duration: `${duration} month(s)`,
+      duration: selectedPlan?.yearlyPrice ? '12 months (Yearly)' : `${duration} month(s)`,
     });
     closeModal();
   };
 
   // Calculate total price for a fixed plan
-  const getTotalPrice = (monthlyPrice: number) => {
-    const total = monthlyPrice * duration * discountFactor[duration];
-    return total;
+  const getTotalPrice = (plan: PricingPlan) => {
+    if (plan.monthlyPrice) {
+      return plan.monthlyPrice * duration * discountFactor[duration];
+    }
+    if (plan.yearlyPrice) {
+      return plan.yearlyPrice;
+    }
+    return 0;
   };
 
   return (
@@ -890,8 +1148,8 @@ export default function PricingPage() {
           >
             {pricingData[selectedCategory]?.map((plan, index) => {
               const isFixed = !plan.isCustom;
-              const total = isFixed ? getTotalPrice(plan.monthlyPrice!) : null;
-              const isExpanded = expandedPlan === plan.name;
+              const total = isFixed ? getTotalPrice(plan) : null;
+              const isExpanded = isAllExpanded;
               return (
                 <motion.div
                   key={plan.name}
@@ -919,14 +1177,14 @@ export default function PricingPage() {
                             {fmtCurrency(total ?? 0)}
                           </span>
                           <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">
-                            / {duration === 1 ? 'Month' : `${duration} Months`}
+                            / {plan.monthlyPrice ? (duration === 1 ? 'Month' : `${duration} Months`) : 'Year'}
                           </span>
                         </>
                       ) : (
                         <span className="text-4xl font-black text-gradient-gold italic tracking-tight">Bespoke.</span>
                       )}
                     </div>
-                    {isFixed && duration > 1 && (
+                    {isFixed && plan.monthlyPrice && duration > 1 && (
                       <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black text-primary uppercase tracking-[0.2em]">
                         <Zap className="w-3 h-3 fill-primary" />
                         Save {Math.round((1 - discountFactor[duration]) * 100)}% Now
@@ -941,52 +1199,62 @@ export default function PricingPage() {
                   )}
 
                   <div className="space-y-5 mb-12 flex-grow">
-                    {(isExpanded
-                      ? plan.features
-                      : plan.features?.slice(0, 10)
-                    ).map((feat, i) => (
-                      <div
-                        key={i}
-                        className={`flex items-center justify-between gap-4 py-2 border-b border-white/5 ${feat.startsWith('---')
-                          ? 'mt-5 pt-5 border-t border-primary/20 border-b-0'
-                          : ''
-                          }`}
-                      >
-                        {feat.startsWith('---') ? (
-                          <div className="w-full px-1 py-1 text-[10px] uppercase tracking-[0.25em] font-black text-primary shadow-[0_0_20px_rgba(var(--primary),0.08)]">
-                            {feat.replace(/---/g, '')}
-                          </div>
-                        ) : (
-                          <>
-                            <span className="text-xs font-medium text-foreground/80 leading-relaxed">
-                              {feat
-                                .replace(' – ✓', '')
-                                .replace(' – ✘', '')
-                                .replace(' ✘', '')}
-                            </span>
+                    {plan.features ? (
+                      (isExpanded
+                        ? plan.features
+                        : plan.features.slice(0, 10)
+                      ).map((feat, i) => (
+                        <div
+                          key={i}
+                          className={`flex items-center justify-between gap-4 py-2 border-b border-white/5 ${feat.startsWith('---')
+                            ? 'mt-5 pt-5 border-t border-primary/20 border-b-0'
+                            : ''
+                            }`}
+                        >
+                          {feat.startsWith('---') ? (
+                            <div className="w-full px-1 py-1 text-[10px] uppercase tracking-[0.25em] font-black text-primary shadow-[0_0_20px_rgba(var(--primary),0.08)]">
+                              {feat.replace(/---/g, '')}
+                            </div>
+                          ) : (
+                            <>
+                                <span className="text-xs font-medium text-foreground/80 leading-relaxed">
+                                  {feat.split(/\s*[–-]\s*/)[0].replace(/[✓✘]/, '').trim()}
+                                </span>
 
-                            {feat.includes('✓') ? (
-                              <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                            ) : feat.includes('✘') ? (
-                              <X className="w-4 h-4 text-red-400 flex-shrink-0" />
-                            ) : (
-                              <span className="text-xs font-black text-primary flex-shrink-0">
-                                {feat.split(' – ')[1]}
-                              </span>
-                            )}
-                          </>
+                              {feat.includes('✓') ? (
+                                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                              ) : feat.includes('✘') ? (
+                                <X className="w-4 h-4 text-red-400 flex-shrink-0" />
+                              ) : (
+                                <span className="text-xs font-black text-primary flex-shrink-0">
+                                  {feat.split(/\s*[–-]\s*/)[1]?.trim()}
+                                </span>
+                              )}
+                            </>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="space-y-6">
+                        {plan.technology && (
+                          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Tech Stack</div>
+                            <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.technology}</div>
+                          </div>
+                        )}
+                        {plan.featuresFunctionality && (
+                          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Core Functionality</div>
+                            <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.featuresFunctionality}</div>
+                          </div>
                         )}
                       </div>
-                    ))}
+                    )}
                     {(plan.features?.length ?? 0) > 10 && (
                       <>
                         <button
                           type="button"
-                          onClick={() =>
-                            setExpandedPlan(
-                              isExpanded ? null : plan.name
-                            )
-                          }
+                          onClick={() => setIsAllExpanded(!isAllExpanded)}
                           className="mt-4 ml-9 md:ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/10"
                         >
                           <Plus
@@ -1073,12 +1341,12 @@ export default function PricingPage() {
                     <div className="p-8 rounded-[2.5rem] bg-[#05070a] border border-white/5 shadow-xl">
                       <div className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.3em] mb-4">Investment Allocation</div>
                       <div className="text-4xl font-black text-foreground tracking-tighter">
-                        {selectedPlan.isCustom ? 'Custom.' : fmtCurrency(getTotalPrice(selectedPlan.monthlyPrice!))}
+                        {selectedPlan.isCustom ? 'Custom.' : fmtCurrency(getTotalPrice(selectedPlan))}
                       </div>
                       {!selectedPlan.isCustom && (
                         <div className="inline-flex items-center gap-2 mt-4 text-[9px] font-black text-primary uppercase tracking-[0.2em]">
                           <Clock className="w-3 h-3" />
-                          Term Length: {duration} months
+                          Term Length: {selectedPlan.yearlyPrice ? '12 Months' : `${duration} months`}
                         </div>
                       )}
                     </div>
@@ -1089,12 +1357,29 @@ export default function PricingPage() {
                         Core Deliverables
                       </div>
                       <div className="space-y-5">
-                        {selectedPlan.features?.slice(0, 6).map((f, i) => (
-                          <div key={i} className="flex items-start gap-4 text-xs font-bold text-muted-foreground leading-relaxed">
-                            <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                            {f.split(' – ')[0]}
+                        {selectedPlan.features ? (
+                          selectedPlan.features.slice(0, 6).map((f, i) => (
+                            <div key={i} className="flex items-start gap-4 text-xs font-bold text-muted-foreground leading-relaxed">
+                              <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              {f.split(/\s*[–-]\s*/)[0].replace(/[✓✘]/, '').trim()}
+                            </div>
+                          ))
+                        ) : (
+                          <div className="space-y-4">
+                            {selectedPlan.technology && (
+                              <div className="text-xs font-bold text-muted-foreground leading-relaxed">
+                                <span className="text-primary font-black uppercase tracking-widest text-[9px] block mb-1">Architecture</span>
+                                {selectedPlan.technology}
+                              </div>
+                            )}
+                            {selectedPlan.featuresFunctionality && (
+                              <div className="text-xs font-bold text-muted-foreground leading-relaxed">
+                                <span className="text-primary font-black uppercase tracking-widest text-[9px] block mb-1">Systems</span>
+                                {selectedPlan.featuresFunctionality}
+                              </div>
+                            )}
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
                   </div>
