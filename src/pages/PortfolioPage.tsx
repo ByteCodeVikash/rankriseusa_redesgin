@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink,
   ArrowRight,
+  ArrowUpRight,
   Search,
   Palette,
   Share2,
@@ -224,9 +225,10 @@ export default function PortfolioPage() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05070a] via-transparent to-transparent opacity-60" />
-                  <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                    <div className="w-14 h-14 rounded-2xl bg-primary text-background flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.4)]">
-                      <ExternalLink className="w-6 h-6" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/20 backdrop-blur-[2px] z-20">
+                    <div className="bg-[#d92323] text-white px-10 py-4 rounded-full flex items-center gap-3 font-black text-xl shadow-[0_0_50px_rgba(217,35,35,0.4)] scale-75 group-hover:scale-100 transition-all duration-500 transform border border-white/20">
+                      <ArrowUpRight className="w-7 h-7" />
+                      Live Demo
                     </div>
                   </div>
                 </div>
