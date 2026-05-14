@@ -1002,7 +1002,6 @@ export default function PricingPage() {
     });
     closeModal();
   };
-
   // Calculate total price for a fixed plan
   const getTotalPrice = (plan: PricingPlan) => {
     if (plan.monthlyPrice) {
@@ -1012,6 +1011,168 @@ export default function PricingPage() {
       return plan.yearlyPrice;
     }
     return 0;
+  };
+
+  const renderCard = (plan: PricingPlan, index: number) => {
+    const isFixed = !plan.isCustom;
+    const total = isFixed ? getTotalPrice(plan) : null;
+    const isExpanded = isAllExpanded;
+    const PlanIcon = plan.name.toUpperCase().includes('BASIC') || plan.name.toUpperCase().includes('STARTER') ? Zap :
+      plan.name.toUpperCase().includes('PRO') || plan.name.toUpperCase().includes('STARTUP') ? Crown :
+        plan.name.toUpperCase().includes('ENTERPRISE') || plan.name.toUpperCase().includes('MASTER') ? ShieldCheck : Rocket;
+    return (
+      <motion.div
+        key={plan.name}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className={`glass-card rounded-[2rem] p-8 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
+          }`}
+      >
+        {plan.popular && (
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 rounded-full bg-primary text-background text-[9px] font-black uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(var(--primary),0.4)] whitespace-nowrap">
+            Industry Leader
+          </div>
+        )}
+
+        <div className="mb-10 relative">
+          <div className="flex items-center justify-between mb-6">
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-primary/50 transition-colors">
+              <PlanIcon className={`w-6 h-6 ${plan.popular ? 'text-primary' : 'text-foreground/70'}`} />
+            </div>
+            {plan.popular && (
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[8px] font-bold text-foreground/50 uppercase tracking-wider">Active Status</span>
+              </div>
+            )}
+          </div>
+
+          <h3 className="text-2xl font-black text-foreground mb-4 group-hover:text-primary transition-colors tracking-tight">
+            {plan.name}
+          </h3>
+          <div className="flex items-baseline gap-2">
+            {isFixed ? (
+              <>
+                <span className="text-5xl font-black text-foreground tracking-tighter">
+                  {fmtCurrency(total ?? 0)}
+                </span>
+                <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">
+                  / {plan.monthlyPrice ? (duration === 1 ? 'Month' : `${duration} Months`) : 'Year'}
+                </span>
+              </>
+            ) : (
+              <span className="text-4xl font-black text-gradient-gold italic tracking-tight">Bespoke.</span>
+            )}
+          </div>
+          {isFixed && plan.monthlyPrice && duration > 1 && (
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black text-primary uppercase tracking-[0.2em]">
+              <Zap className="w-3 h-3 fill-primary" />
+              Save {Math.round((1 - discountFactor[duration]) * 100)}% Now
+            </div>
+          )}
+        </div>
+
+        {plan.description && (
+          <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-10">
+            {plan.description}
+          </p>
+        )}
+
+        <div className="space-y-5 mb-12 flex-grow">
+          {plan.features ? (
+            (isExpanded
+              ? plan.features
+              : plan.features.slice(0, 10)
+            ).map((feat, i) => (
+              <div
+                key={i}
+                className={`flex items-center justify-between gap-4 py-2 border-b border-white/5 ${feat.startsWith('---')
+                  ? 'mt-5 pt-5 border-t border-primary/20 border-b-0'
+                  : ''
+                  }`}
+              >
+                {feat.startsWith('---') ? (
+                  <div className="w-full px-1 py-1 text-[10px] uppercase tracking-[0.25em] font-black text-primary shadow-[0_0_20px_rgba(var(--primary),0.08)]">
+                    {feat.replace(/---/g, '')}
+                  </div>
+                ) : (
+                  <>
+                    <span className="text-xs font-medium text-foreground/80 leading-relaxed">
+                      {feat.split(/\s*[–-]\s*/)[0].replace(/[✓✘]/, '').trim()}
+                    </span>
+
+                    {feat.includes('✓') ? (
+                      <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                    ) : feat.includes('✘') ? (
+                      <X className="w-4 h-4 text-red-400 flex-shrink-0" />
+                    ) : (
+                      <span className="text-xs font-black text-primary flex-shrink-0">
+                        {feat.split(/\s*[–-]\s*/)[1]?.trim()}
+                      </span>
+                    )}
+                  </>
+                )}
+              </div>
+            ))
+          ) : (
+            <div className="space-y-6">
+              {plan.technology && (
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Tech Stack</div>
+                  <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.technology}</div>
+                </div>
+              )}
+              {plan.featuresFunctionality && (
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Core Functionality</div>
+                  <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.featuresFunctionality}</div>
+                </div>
+              )}
+            </div>
+          )}
+          {(plan.features?.length ?? 0) > 10 && (
+            <>
+              <button
+                type="button"
+                onClick={() => setIsAllExpanded(!isAllExpanded)}
+                className="mt-4 ml-9 md:ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/10"
+              >
+                <Plus
+                  className={`h-3 w-3 transition-transform ${isExpanded ? "rotate-45" : ""
+                    }`}
+                />
+
+                {isExpanded
+                  ? "Hide Metrics"
+                  : `${(plan.features?.length ?? 0) - 10} Advanced Metrics`}
+              </button>
+
+
+            </>
+          )}
+        </div>
+
+        <Button
+          onClick={() => openModal(plan, selectedCategory)}
+          className={`w-full h-16 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] group overflow-hidden relative ${plan.popular ? 'button-premium' : 'bg-white/5 hover:bg-white/10 text-foreground border border-white/10'
+            }`}
+        >
+          <span className="relative z-10 flex items-center justify-center gap-2">
+            Initialize Protocol
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </span>
+          {plan.popular && (
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+            />
+          )}
+        </Button>
+      </motion.div>
+    );
   };
 
   return (
@@ -1144,154 +1305,26 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
+            className="space-y-20"
           >
-            {pricingData[selectedCategory]?.map((plan, index) => {
-              const isFixed = !plan.isCustom;
-              const total = isFixed ? getTotalPrice(plan) : null;
-              const isExpanded = isAllExpanded;
-              return (
-                <motion.div
-                  key={plan.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`glass-card rounded-[2rem] p-8 border-white/5 flex flex-col group relative transition-all duration-500 hover:border-primary/30 hover:-translate-y-2 ${plan.popular ? 'border-primary/40 bg-primary/[0.03] ring-1 ring-primary/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : ''
-                    }`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 rounded-full bg-primary text-background text-[9px] font-black uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(var(--primary),0.4)] whitespace-nowrap">
-                      Industry Leader
-                    </div>
-                  )}
+            {/* Primary Grid (Max 3) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+              {pricingData[selectedCategory]?.slice(0, 3).map((plan, index) => renderCard(plan, index))}
+            </div>
 
-                  <div className="mb-10">
-                    <h3 className="text-2xl font-black text-foreground mb-4 group-hover:text-primary transition-colors tracking-tight">
-                      {plan.name}
-                    </h3>
-                    <div className="flex items-baseline gap-2">
-                      {isFixed ? (
-                        <>
-                          <span className="text-5xl font-black text-foreground tracking-tighter">
-                            {fmtCurrency(total ?? 0)}
-                          </span>
-                          <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">
-                            / {plan.monthlyPrice ? (duration === 1 ? 'Month' : `${duration} Months`) : 'Year'}
-                          </span>
-                        </>
-                      ) : (
-                        <span className="text-4xl font-black text-gradient-gold italic tracking-tight">Bespoke.</span>
-                      )}
-                    </div>
-                    {isFixed && plan.monthlyPrice && duration > 1 && (
-                      <div className="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black text-primary uppercase tracking-[0.2em]">
-                        <Zap className="w-3 h-3 fill-primary" />
-                        Save {Math.round((1 - discountFactor[duration]) * 100)}% Now
-                      </div>
-                    )}
-                  </div>
-
-                  {plan.description && (
-                    <p className="text-sm text-muted-foreground font-medium leading-relaxed mb-10">
-                      {plan.description}
-                    </p>
-                  )}
-
-                  <div className="space-y-5 mb-12 flex-grow">
-                    {plan.features ? (
-                      (isExpanded
-                        ? plan.features
-                        : plan.features.slice(0, 10)
-                      ).map((feat, i) => (
-                        <div
-                          key={i}
-                          className={`flex items-center justify-between gap-4 py-2 border-b border-white/5 ${feat.startsWith('---')
-                            ? 'mt-5 pt-5 border-t border-primary/20 border-b-0'
-                            : ''
-                            }`}
-                        >
-                          {feat.startsWith('---') ? (
-                            <div className="w-full px-1 py-1 text-[10px] uppercase tracking-[0.25em] font-black text-primary shadow-[0_0_20px_rgba(var(--primary),0.08)]">
-                              {feat.replace(/---/g, '')}
-                            </div>
-                          ) : (
-                            <>
-                                <span className="text-xs font-medium text-foreground/80 leading-relaxed">
-                                  {feat.split(/\s*[–-]\s*/)[0].replace(/[✓✘]/, '').trim()}
-                                </span>
-
-                              {feat.includes('✓') ? (
-                                <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                              ) : feat.includes('✘') ? (
-                                <X className="w-4 h-4 text-red-400 flex-shrink-0" />
-                              ) : (
-                                <span className="text-xs font-black text-primary flex-shrink-0">
-                                  {feat.split(/\s*[–-]\s*/)[1]?.trim()}
-                                </span>
-                              )}
-                            </>
-                          )}
-                        </div>
-                      ))
-                    ) : (
-                      <div className="space-y-6">
-                        {plan.technology && (
-                          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                            <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Tech Stack</div>
-                            <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.technology}</div>
-                          </div>
-                        )}
-                        {plan.featuresFunctionality && (
-                          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                            <div className="text-[9px] uppercase tracking-[0.25em] font-black text-primary mb-3">Core Functionality</div>
-                            <div className="text-xs font-bold text-foreground/80 leading-relaxed">{plan.featuresFunctionality}</div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    {(plan.features?.length ?? 0) > 10 && (
-                      <>
-                        <button
-                          type="button"
-                          onClick={() => setIsAllExpanded(!isAllExpanded)}
-                          className="mt-4 ml-9 md:ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/10"
-                        >
-                          <Plus
-                            className={`h-3 w-3 transition-transform ${isExpanded ? "rotate-45" : ""
-                              }`}
-                          />
-
-                          {isExpanded
-                            ? "Hide Metrics"
-                            : `${(plan.features?.length ?? 0) - 10} Advanced Metrics`}
-                        </button>
-
-
-                      </>
-                    )}
-                  </div>
-
-                  <Button
-                    onClick={() => openModal(plan, selectedCategory)}
-                    className={`w-full h-16 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] group overflow-hidden relative ${plan.popular ? 'button-premium' : 'bg-white/5 hover:bg-white/10 text-foreground border border-white/10'
-                      }`}
-                  >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      Initialize Protocol
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    {plan.popular && (
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-                        animate={{ x: ['-100%', '200%'] }}
-                        transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-                      />
-                    )}
-                  </Button>
-                </motion.div>
-              );
-            })}
+            {/* Secondary Grid (Remaining) */}
+            {pricingData[selectedCategory]?.length > 3 && (
+              <div className="space-y-12">
+                <div className="flex items-center gap-6 opacity-30">
+                  <div className="h-px flex-grow bg-white" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground">Advanced Tiers</span>
+                  <div className="h-px flex-grow bg-white" />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                  {pricingData[selectedCategory]?.slice(3).map((plan, index) => renderCard(plan, index + 3))}
+                </div>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
