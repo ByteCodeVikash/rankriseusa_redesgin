@@ -260,19 +260,19 @@ function ServiceBlock({ service, index }: { service: typeof services[0], index: 
 
 function ServiceItem({ item, index, icon: Icon }: { item: string, index: number, icon: any }) {
   const itemRef = useRef(null);
-  const isInView = useInView(itemRef, { once: false, margin: "-15% 0px -15% 0px" });
+  const isInView = useInView(itemRef, { once: false, margin: "-5% 0px -5% 0px" });
 
   return (
     <motion.div
       ref={itemRef}
-      initial={{ opacity: 0, x: 40, filter: "blur(15px)", scale: 0.95 }}
+      initial={{ opacity: 0, x: 20, filter: "blur(10px)", scale: 0.98 }}
       animate={isInView
         ? { opacity: 1, x: 0, filter: "blur(0px)", scale: 1 }
-        : { opacity: 0, x: 40, filter: "blur(15px)", scale: 0.95 }
+        : { opacity: 0, x: 20, filter: "blur(10px)", scale: 0.98 }
       }
       transition={{
-        duration: 1,
-        delay: index * 0.05,
+        duration: 0.6,
+        delay: index * 0.03,
         ease: [0.16, 1, 0.3, 1]
       }}
       className="group flex items-center gap-10"
@@ -281,12 +281,12 @@ function ServiceItem({ item, index, icon: Icon }: { item: string, index: number,
         <Icon className="w-5 h-5 text-white/20 group-hover:text-primary transition-colors" />
       </div>
 
-      <div className="flex-1 border-b border-white/5 pb-8 group-hover:border-primary/20 transition-colors duration-700">
+      <div className="flex-1 border-b border-white/5 pb-8 group-hover:border-primary/20 transition-colors duration-500">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm lg:text-[3rem] font-bold text-white/10 group-hover:text-white transition-all duration-1000 cursor-default tracking-tighter leading-tight">
+          <h4 className="text-sm lg:text-[3rem] font-bold text-white/10 group-hover:text-white transition-all duration-500 cursor-default tracking-tighter leading-tight">
             {item}
           </h4>
-          <span className="text-[10px] font-black text-white/5 group-hover:text-primary transition-colors">
+          <span className="text-[10px] font-black text-white/5 group-hover:text-primary transition-colors duration-500">
             0{index + 1}
           </span>
         </div>
