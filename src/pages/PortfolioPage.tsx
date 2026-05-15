@@ -226,7 +226,7 @@ export default function PortfolioPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05070a] via-transparent to-transparent opacity-60" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-black/20 backdrop-blur-[2px] z-20">
-                    <div className="bg-[#d92323] text-white px-10 py-4 rounded-full flex items-center gap-3 font-black text-xl shadow-[0_0_50px_rgba(217,35,35,0.4)] scale-75 group-hover:scale-100 transition-all duration-500 transform border border-white/20">
+                    <div className="bg-[#D4A017] text-white px-10 py-4 rounded-full flex items-center gap-3 font-black text-xl shadow-[0_0_50px_rgba(217,35,35,0.4)] scale-75 group-hover:scale-100 transition-all duration-500 transform border border-white/20">
                       <ArrowUpRight className="w-7 h-7" />
                       Live Demo
                     </div>

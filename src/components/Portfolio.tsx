@@ -94,7 +94,7 @@ export default function Portfolio() {
               Proven <br />
               <span className="text-gradient-gold italic">Superiority.</span>
             </motion.h2>
-            
+
             <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium max-w-3xl">
               We don't just execute projects; we architect market dominance. Explore our protocols of high-impact neural transformations and market-leading expansions.
             </p>
@@ -106,11 +106,10 @@ export default function Portfolio() {
                 key={category}
                 variant={filter === category ? 'default' : 'outline'}
                 onClick={() => setFilter(category)}
-                className={`rounded-2xl px-10 py-5 h-auto text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-700 ${
-                  filter === category 
-                    ? 'button-premium border-0' 
-                    : 'bg-white/5 border-white/10 hover:border-primary/50 text-white/50 hover:text-primary'
-                }`}
+                className={`rounded-2xl px-10 py-5 h-auto text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-700 ${filter === category
+                  ? 'button-premium border-0'
+                  : 'bg-white/5 border-white/10 hover:border-primary/50 text-white/50 hover:text-primary'
+                  }`}
               >
                 {category}
               </Button>
@@ -253,7 +252,7 @@ function ProjectCard({ project, index, onClick }: any) {
           className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s] group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-[#0d1117]/20 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-1000" />
-        
+
         {/* Action Icon */}
         <div className="absolute top-12 right-12 w-20 h-20 rounded-3xl bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-x-8 group-hover:translate-x-0 shadow-2xl">
           <ArrowRight className="w-8 h-8 text-background -rotate-45" />
@@ -271,11 +270,11 @@ function ProjectCard({ project, index, onClick }: any) {
           <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter group-hover:text-primary transition-all duration-700 uppercase italic">
             {project.title}
           </h3>
-          
+
           <div className="flex gap-16 pt-8 opacity-0 group-hover:opacity-100 transition-all duration-1000 translate-y-12 group-hover:translate-y-0 delay-200">
             {Object.entries(project.stats).slice(0, 2).map(([key, value]) => (
               <div key={key} className="flex flex-col">
-                <span className="text-3xl font-black text-white tracking-tight">{value}</span>
+                {/* <span className="text-3xl font-black text-white tracking-tight">{value}</span> */}
                 <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mt-1">{key}</span>
               </div>
             ))}
