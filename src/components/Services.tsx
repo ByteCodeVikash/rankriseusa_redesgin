@@ -1,8 +1,9 @@
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import {
   Search, Share2, Code, Brain, Megaphone, BarChart3, ArrowRight, Sparkles,
   Zap, ShoppingCart, Target, Shield, Smartphone, Server, Bot, Database,
-  Users, GraduationCap, LayoutGrid, Cloud, ShieldCheck, Eye, Wrench, Cpu
+  Users, GraduationCap, LayoutGrid, Cloud, ShieldCheck, Eye, Wrench, Cpu,
+  Activity, Globe, Terminal, Box
 } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -47,7 +48,7 @@ export default function Services() {
     {
       icon: Code,
       title: 'Next-Gen Web Dev',
-      image: '/assets/images/services/service_web_dev.png',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop',
       description: 'Ultra-fast, animated, and high-conversion web experiences built with React, Next.js, and Framer Motion.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -75,7 +76,7 @@ export default function Services() {
     {
       icon: Smartphone,
       title: 'App Development',
-      image: '/assets/images/services/service_app_dev.png',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop',
       description: 'Premium mobile experiences for iOS and Android. Native performance with elite UI/UX design.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -89,7 +90,7 @@ export default function Services() {
     {
       icon: Shield,
       title: 'Brand Authority',
-      image: '/assets/images/services/service_brand.png',
+      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2000&auto=format&fit=crop',
       description: 'Manage your digital reputation and build unwavering trust through strategic ORM and content authority.',
       color: 'from-primary to-accent',
       glowColor: 'rgba(250, 204, 21, 0.3)',
@@ -139,54 +140,77 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 relative overflow-visible bg-[#05070a]">
+    <section id="services" className="py-32 relative overflow-visible bg-[#05070a]">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[150px] rounded-full -translate-x-1/2 translate-y-1/2" />
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-blue-600/5 blur-[150px] rounded-full -translate-x-1/2 translate-y-1/2" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.02] neural-grid" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
-          <div className="max-w-3xl">
+        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-12 h-[1px] bg-primary" />
+              <span className="text-primary text-[10px] font-black uppercase tracking-[0.4em]">Our Capabilities</span>
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl sm:text-7xl font-black mb-6 text-white leading-[0.95]"
+              className="text-6xl sm:text-8xl font-black mb-8 text-white leading-[0.85] tracking-tighter"
             >
               Architecting <br />
               <span className="text-gradient-gold">Digital Dominance.</span>
             </motion.h2>
 
-            
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-xl text-white/50 leading-relaxed max-w-2xl font-medium"
+              className="text-2xl text-white/40 leading-relaxed max-w-2xl font-medium"
             >
-              We merge neural engineering with high-performance marketing to 
-              deliver unfair competitive advantages.
+              We merge neural engineering with high-performance marketing to
+              deliver unfair competitive advantages in the AI-first world.
             </motion.p>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            className="flex flex-col items-center lg:items-end gap-6"
           >
+            <div className="flex -space-x-4 mb-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-12 h-12 rounded-full border-2 border-[#05070a] bg-zinc-800 flex items-center justify-center overflow-hidden">
+                  <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Client" className="w-full h-full object-cover opacity-80" />
+                </div>
+              ))}
+              <div className="w-12 h-12 rounded-full border-2 border-[#05070a] bg-primary flex items-center justify-center text-[10px] font-black text-background">
+                +50
+              </div>
+            </div>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 mb-2">Trusted by global innovators</p>
             <Link to="/portfolio">
-              <Button className="button-premium text-xs uppercase tracking-widest px-10 py-8 h-auto rounded-2xl">
-                Explore Portfolio
+              <Button className="button-premium text-xs uppercase tracking-[0.3em] px-12 py-9 h-auto rounded-2xl group">
+                <span>Explore Ecosystem</span>
+                <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" />
               </Button>
             </Link>
           </motion.div>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
@@ -205,81 +229,114 @@ export default function Services() {
         <AnmlServices />
 
         {/* Custom Solution Banner */}
-
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-24 p-[1px] bg-gradient-to-r from-white/10 via-primary/50 to-white/10 rounded-[3rem]"
+          className="mt-32 p-[1px] bg-gradient-to-r from-white/5 via-primary/40 to-white/5 rounded-[4rem]"
         >
-          <div className="bg-[#05070a] rounded-[2.9rem] p-10 sm:p-16 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-12 opacity-[0.03]">
-              <Zap className="w-48 h-48 text-primary" />
+          <div className="bg-[#080a0f] rounded-[3.9rem] p-12 sm:p-24 text-center relative overflow-hidden group">
+            {/* Animated Background Icon */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] transition-transform duration-1000 group-hover:scale-110">
+              <Zap className="w-[600px] h-[600px] text-primary" />
             </div>
-            <h3 className="text-4xl sm:text-5xl font-black mb-6 text-white">Need a Bespoke AI System?</h3>
-            <p className="text-xl text-white/50 mb-10 max-w-3xl mx-auto font-medium">
-              Our neural engineering team architects custom LLM integrations and 
-              autonomous growth engines tailored to your enterprise DNA.
-            </p>
-            <Link to="/contact">
-              <Button className="button-premium text-sm uppercase tracking-widest px-12 py-8 h-auto rounded-2xl">
-                Initiate Consultation
-              </Button>
-            </Link>
+
+            <div className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-10 border border-primary/20"
+              >
+                <Sparkles className="w-10 h-10 text-primary" />
+              </motion.div>
+
+              <h3 className="text-5xl sm:text-7xl font-black mb-8 text-white tracking-tighter">
+                Need a Bespoke <br className="sm:hidden" />
+                <span className="text-gradient-gold italic">AI System?</span>
+              </h3>
+
+              <p className="text-xl text-white/50 mb-14 max-w-3xl mx-auto font-medium leading-relaxed">
+                Our neural engineering team architects custom LLM integrations and
+                autonomous growth engines tailored to your enterprise DNA.
+              </p>
+
+              <Link to="/contact">
+                <Button className="button-premium text-sm uppercase tracking-[0.3em] px-16 py-9 h-auto rounded-3xl">
+                  Initiate Consultation
+                </Button>
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>
 
       {/* Service Detail Modal */}
       <Dialog open={selectedService !== null} onOpenChange={() => setSelectedService(null)}>
-        <DialogContent className="max-w-2xl bg-[#0d1117]/95 backdrop-blur-2xl border-white/5 p-8 rounded-[2.5rem]">
+        <DialogContent className="max-w-4xl bg-[#0d1117]/95 backdrop-blur-3xl border-white/5 p-0 overflow-hidden rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
           {selectedService !== null && (
-            <div className="space-y-8">
-              <DialogHeader>
-                <DialogTitle className="flex items-center gap-4 text-3xl font-black text-white">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${services[selectedService].color} flex items-center justify-center shadow-lg`}>
+            <div className="flex flex-col lg:flex-row h-full">
+              {/* Left Column: Visual */}
+              <div className="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden">
+                <img
+                  src={services[selectedService].image}
+                  alt={services[selectedService].title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0d1117] via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${services[selectedService].color} flex items-center justify-center shadow-2xl transform hover:scale-110 transition-transform`}>
                     {(() => {
                       const IconComponent = services[selectedService].icon;
-                      return <IconComponent className="w-7 h-7 text-background" />;
+                      return <IconComponent className="w-8 h-8 text-background" />;
                     })()}
                   </div>
-                  {services[selectedService].title}
-                </DialogTitle>
-                <DialogDescription className="text-xl pt-4 text-white/50 leading-relaxed">
-                  {services[selectedService].details}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <div className="space-y-8">
-                <div className="grid grid-cols-2 gap-4">
-                  {services[selectedService].features.map((feature, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 }}
-                      className="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-xl border border-white/5"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="text-sm font-bold text-white">{feature}</span>
-                    </motion.div>
-                  ))}
                 </div>
+              </div>
 
-                <div className="bg-primary/[0.03] p-6 rounded-2xl border border-primary/20 flex justify-between items-center">
-                  <div>
-                    <h4 className="font-bold text-white/40 uppercase text-xs tracking-widest mb-1">Estimated Investment</h4>
-                    <span className="text-3xl font-black text-primary">
-                      {services[selectedService].price}
-                    </span>
+              {/* Right Column: Content */}
+              <div className="lg:w-3/5 p-12 space-y-10 bg-[#0d1117]">
+                <DialogHeader>
+                  <DialogTitle className="text-4xl font-black text-white tracking-tighter mb-4">
+                    {services[selectedService].title}
+                  </DialogTitle>
+                  <DialogDescription className="text-lg text-white/50 leading-relaxed font-medium">
+                    {services[selectedService].details}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="space-y-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {services[selectedService].features.map((feature, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="flex items-center gap-4 bg-white/5 px-5 py-4 rounded-2xl border border-white/5 group hover:border-primary/30 transition-colors"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(250,204,21,0.5)]" />
+                        <span className="text-sm font-bold text-white/90">{feature}</span>
+                      </motion.div>
+                    ))}
                   </div>
-                  <Button 
-                    className="button-premium px-8 py-6"
-                    onClick={(e) => handleAction(services[selectedService], e)}
-                  >
-                    {services[selectedService].isQuote ? 'Get Quote' : 'Secure Now'}
-                  </Button>
+
+                  <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-8">
+                    <div>
+                      <h4 className="font-black text-white/30 uppercase text-[10px] tracking-[0.3em] mb-2">Strategic Investment</h4>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-black text-primary">
+                          {services[selectedService].price}
+                        </span>
+                        {!services[selectedService].isQuote && <span className="text-white/30 text-sm font-bold">/ Project</span>}
+                      </div>
+                    </div>
+                    <Button
+                      className="button-premium w-full sm:w-auto px-12 py-7 rounded-2xl text-xs uppercase tracking-[0.2em]"
+                      onClick={(e) => handleAction(services[selectedService], e)}
+                    >
+                      {services[selectedService].isQuote ? 'Request Protocol' : 'Deploy Now'}
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -289,53 +346,87 @@ export default function Services() {
     </section>
   );
 }
-function ServiceCard({ service, index, onClick, onAction }: any) {
+
+function ServiceCard({ service, index, onClick, onHover, onLeave, isHovered }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
       onClick={onClick}
-      className="group relative cursor-pointer overflow-hidden rounded-[2.5rem] h-[500px]"
+      className="group relative cursor-pointer overflow-hidden rounded-[2.5rem] h-[550px] bg-[#0d1117] border border-white/5 hover:border-primary/20 transition-all duration-700"
     >
-      {/* Background Image */}
+      {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={service.image} 
-          alt={service.title} 
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+        <motion.img
+          src={service.image}
+          alt={service.title}
+          animate={{ scale: isHovered ? 1.1 : 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-60"
         />
-        {/* Dark Overlays for Readability */}
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+        {/* Cinematic Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05070a] via-[#05070a]/40 to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700" />
       </div>
 
       {/* Content Overlay */}
       <div className="relative z-10 h-full p-10 flex flex-col justify-between">
         <div className="flex justify-between items-start">
-          <div className="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-            <service.icon className="w-6 h-6 text-white group-hover:text-background" />
+          <motion.div
+            animate={{
+              y: isHovered ? -5 : 0,
+              rotate: isHovered ? 5 : 0
+            }}
+            className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 shadow-2xl"
+          >
+            <service.icon className="w-7 h-7 text-white group-hover:text-background transition-colors duration-500" />
+          </motion.div>
+
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                className="bg-primary/20 backdrop-blur-md border border-primary/30 px-3 py-1 rounded-full"
+              >
+                <span className="text-[10px] font-black text-primary uppercase tracking-widest">{service.expertise}% Excellence</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <h3 className="text-3xl font-black text-white leading-[0.95] tracking-tighter group-hover:text-primary transition-colors duration-500">
+              {service.title}
+            </h3>
+            <p className="text-white/40 text-sm font-medium line-clamp-2 group-hover:text-white/60 transition-colors duration-500">
+              {service.description}
+            </p>
+          </div>
+
+          <div className="pt-6 relative">
+            <div className="absolute top-0 left-0 w-12 h-[2px] bg-primary group-hover:w-full transition-all duration-700" />
+            <Button className="w-full h-14 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-black uppercase tracking-[0.2em] text-[10px] group-hover:bg-primary group-hover:text-background group-hover:border-primary transition-all duration-500 flex items-center justify-between px-6">
+              <span>View Protocol</span>
+              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-background/20 transition-colors">
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Button>
           </div>
         </div>
-
-        <div>
-          <h3 className="text-3xl font-black text-white mb-6 leading-tight tracking-tighter group-hover:text-primary transition-colors">
-            {service.title}
-          </h3>
-          
-          <Button className="w-full h-14 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold uppercase tracking-widest text-[10px] group-hover:bg-primary group-hover:text-background group-hover:border-primary transition-all duration-500">
-            <span>View Protocol</span>
-            <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-2 transition-transform" />
-          </Button>
-        </div>
       </div>
 
-      {/* Hover Glow Effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-        <div className="absolute inset-0 border-2 border-primary/30 rounded-[2.5rem]" />
-      </div>
+      {/* Decorative Glow */}
+      <div
+        className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-[100px] opacity-0 group-hover:opacity-20 transition-opacity duration-1000"
+        style={{ backgroundColor: 'var(--primary)' }}
+      />
     </motion.div>
-
   );
 }
