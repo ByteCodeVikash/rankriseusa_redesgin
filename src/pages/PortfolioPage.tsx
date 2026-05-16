@@ -162,6 +162,87 @@ export default function PortfolioPage() {
       image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800',
       description: 'Hyperlocal marketplace concept built for local buying and selling with a simple commerce flow.',
       link: 'https://gharkamarket.in/'
+    },
+    {
+      id: 17,
+      title: 'Rajasthani Royal Luxury',
+      category: 'Web Design',
+      tag: 'Restaurant',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800',
+      description: 'Premium restaurant website showcasing luxury dining experience, menu, and ambiance.',
+      link: 'https://rajasthani-royal-luxury-website-raj.vercel.app/'
+    },
+    {
+      id: 18,
+      title: 'RankRise USA Redesign',
+      category: 'Marketing & Branding',
+      tag: 'IT & Digital Marketing',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      description: 'Redesigned IT and digital marketing agency website with modern aesthetics and performance focus.',
+      link: 'https://rankriseusa-redesgin.vercel.app/'
+    },
+    {
+      id: 19,
+      title: 'Shivraj Hotel',
+      category: 'Web Design',
+      tag: 'Hotel',
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800',
+      description: 'Hotel booking and showcase website highlighting rooms, amenities, and hospitality.',
+      link: 'https://shivrajhotel.vercel.app/'
+    },
+    {
+      id: 20,
+      title: 'Modern School Website',
+      category: 'Web Design',
+      tag: 'Education',
+      image: '/src/assets/morden-school-website.png',
+      description: 'Comprehensive school website for students and parents featuring academic programs and admissions.',
+      link: 'https://school-website-8hti.vercel.app/'
+    },
+    {
+      id: 21,
+      title: 'TechForex',
+      category: 'Web Design',
+      tag: 'Finance',
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+      description: 'Professional forex trading platform website with financial tools and market insights.',
+      link: 'https://techforex.in/'
+    },
+    {
+      id: 22,
+      title: 'DNA Repcom Lab',
+      category: 'Web Design',
+      tag: 'Healthcare',
+      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+      description: 'Specialized cancer research institute website detailing facilities, research, and patient care.',
+      link: 'https://dna-repcom-lab.vercel.app/'
+    },
+    {
+      id: 23,
+      title: 'Mero Vrindavan Dham',
+      category: 'Web Design',
+      tag: 'Real Estate',
+      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
+      description: 'Real estate platform for premium plots and properties in the sacred city of Vrindavan.',
+      link: 'https://merovrindavandham.vercel.app/'
+    },
+    {
+      id: 24,
+      title: 'Bella Decor Art Gallery',
+      category: 'Web Design',
+      tag: 'Art & Design',
+      image: '/src/assets/bella-decor.png',
+      description: 'Elegant art gallery website showcasing collections, exhibitions, and artists.',
+      link: 'https://bella-decor-bella-decor.vercel.app/'
+    },
+    {
+      id: 25,
+      title: 'Gas & Chimney Care',
+      category: 'Web Design',
+      tag: 'Home Services',
+      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
+      description: 'Reliable gas and chimney maintenance service website with booking integration.',
+      link: 'https://gaschimneycare-testing.netlify.app/'
     }
   ];
 
@@ -317,12 +398,14 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
             className="mt-40 text-center"
           >
-            <Link to="/contact">
-              <Button className="h-24 px-20 rounded-full button-premium font-black uppercase tracking-[0.3em] text-lg flex items-center gap-5 mx-auto group">
-                Start Protocol Sync
-                <ArrowRight className="w-7 h-7 group-hover:translate-x-4 transition-transform" />
-              </Button>
-            </Link>
+            <div className="flex justify-center w-full px-4 sm:px-0">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button className="h-16 sm:h-20 lg:h-24 w-full sm:w-auto px-6 sm:px-12 lg:px-20 rounded-[2rem] sm:rounded-full button-premium font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm lg:text-lg flex items-center justify-center gap-3 sm:gap-5 mx-auto group">
+                  Start Protocol Sync
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 group-hover:translate-x-2 sm:group-hover:translate-x-4 transition-transform" />
+                </Button>
+              </Link>
+            </div>
             <p className="mt-12 text-white/30 font-black uppercase tracking-[0.4em] text-xs">
               Ascend to digital dominance today.
             </p>

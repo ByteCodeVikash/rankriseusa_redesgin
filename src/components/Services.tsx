@@ -150,8 +150,8 @@ export default function Services() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
-          <div className="max-w-4xl">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 lg:mb-24 gap-8 lg:gap-12 text-center lg:text-left">
+          <div className="max-w-4xl flex flex-col items-center lg:items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -166,7 +166,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-6xl sm:text-8xl font-black mb-8 text-white leading-[0.85] tracking-tighter"
+              className="text-5xl sm:text-6xl lg:text-8xl font-black mb-8 text-white leading-[0.85] tracking-tighter"
             >
               Architecting <br />
               <span className="text-gradient-gold">Digital Dominance.</span>
@@ -233,12 +233,12 @@ export default function Services() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 p-[1px] bg-gradient-to-r from-white/5 via-primary/40 to-white/5 rounded-[4rem]"
+          className="mt-20 lg:mt-32 p-[1px] bg-gradient-to-r from-white/5 via-primary/40 to-white/5 rounded-[3rem] lg:rounded-[4rem]"
         >
-          <div className="bg-[#080a0f] rounded-[3.9rem] p-12 sm:p-24 text-center relative overflow-hidden group">
+          <div className="bg-[#080a0f] rounded-[2.9rem] lg:rounded-[3.9rem] p-8 sm:p-12 lg:p-24 text-center relative overflow-hidden group">
             {/* Animated Background Icon */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] transition-transform duration-1000 group-hover:scale-110">
-              <Zap className="w-[600px] h-[600px] text-primary" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] transition-transform duration-1000 group-hover:scale-110 pointer-events-none">
+              <Zap className="w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] text-primary" />
             </div>
 
             <div className="relative z-10">
@@ -250,7 +250,7 @@ export default function Services() {
                 <Sparkles className="w-10 h-10 text-primary" />
               </motion.div>
 
-              <h3 className="text-5xl sm:text-7xl font-black mb-8 text-white tracking-tighter">
+              <h3 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-8 text-white tracking-tighter">
                 Need a Bespoke <br className="sm:hidden" />
                 <span className="text-gradient-gold italic">AI System?</span>
               </h3>
@@ -260,11 +260,13 @@ export default function Services() {
                 autonomous growth engines tailored to your enterprise DNA.
               </p>
 
-              <Link to="/contact">
-                <Button className="button-premium text-sm uppercase tracking-[0.3em] px-16 py-9 h-auto rounded-3xl">
-                  Initiate Consultation
-                </Button>
-              </Link>
+              <div className="flex justify-center w-full">
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button className="button-premium text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] px-8 sm:px-16 py-5 sm:py-9 h-auto rounded-2xl sm:rounded-3xl w-full sm:w-auto mx-auto block">
+                    Initiate Consultation
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -1176,11 +1176,28 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 pt-24 pb-16 relative">
+    <div className="min-h-screen bg-gray-950 pt-24 pb-16 relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] -z-10" />
 
+      {/* Fixed Tools - Desktop */}
+      <div className="hidden lg:block">
+        <Link
+          to="/custom-plan"
+          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-pink-700 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+        >
+          {/* <Sparkles className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
+          <span className="uppercase tracking-widest">Custom Plan</span>
+        </Link>
+        <Link
+          to="/cost-calculator"
+          className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-blue-500 backdrop-blur-xl border border-white/10 text-foreground px-4 py-3 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+        >
+          {/* <Calculator className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
+          <span className="uppercase tracking-widest">Cost Calculator</span>
+        </Link>
+      </div>
 
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header Section */}
@@ -1254,51 +1271,30 @@ export default function PricingPage() {
           </motion.div>
         </div>
 
-        {/* Sticky Strategy & Navigation Bar */}
-        <div className="sticky top-48 z-40 py-10 bg-[#05070a]/90 backdrop-blur-2xl border-b border-white/5 mb-24 -mx-4 lg:-mx-8 px-4 lg:px-8">
-          {/* Strategic Tools Header */}
-          <div className="hidden lg:flex justify-between items-center mb-10 px-4">
-            <Link
-              to="/custom-plan"
-              className="flex items-center gap-3 bg-pink-700/20 backdrop-blur-xl border border-pink-700/30 text-foreground px-8 py-5 rounded-[2rem] text-sm font-bold shadow-2xl hover:border-pink-700 transition-all hover:scale-105 group"
-            >
-              <Sparkles className="w-5 h-5 text-pink-500 group-hover:rotate-12 transition-transform" />
-              <span className="uppercase tracking-widest">Build Custom Plan</span>
-            </Link>
-            <Link
-              to="/cost-calculator"
-              className="flex items-center gap-3 bg-blue-500/20 backdrop-blur-xl border border-blue-500/30 text-foreground px-8 py-5 rounded-[2rem] text-sm font-bold shadow-2xl hover:border-blue-500 transition-all hover:scale-105 group"
-            >
-              <Calculator className="w-5 h-5 text-blue-400 group-hover:rotate-12 transition-transform" />
-              <span className="uppercase tracking-widest">ROI Cost Calculator</span>
-            </Link>
-          </div>
-
-          {/* Service Category Navigation */}
-          <div className="overflow-x-auto pb-2 hide-scrollbar">
-            <div className="flex justify-start lg:justify-center gap-5 min-w-max">
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-4 px-8 py-5 rounded-2xl glass-card border-white/5 transition-all group relative overflow-hidden ${selectedCategory === category.id
-                    ? 'border-primary/50 bg-primary/[0.03]'
-                    : 'hover:border-white/20'
-                    }`}
-                >
-                  {selectedCategory === category.id && (
-                    <motion.div
-                      layoutId="active-cat-bg"
-                      className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"
-                    />
-                  )}
-                  <category.Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${selectedCategory === category.id ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
-                  <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${selectedCategory === category.id ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
-                    {category.name}
-                  </span>
-                </button>
-              ))}
-            </div>
+        {/* Service Category Navigation */}
+        <div className="mb-24 overflow-x-auto pb-6 hide-scrollbar">
+          <div className="flex justify-start lg:justify-center gap-5 min-w-max">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`flex items-center gap-4 px-8 py-5 rounded-2xl glass-card border-white/5 transition-all group relative overflow-hidden ${selectedCategory === category.id
+                  ? 'border-primary/50 bg-primary/[0.03]'
+                  : 'hover:border-white/20'
+                  }`}
+              >
+                {selectedCategory === category.id && (
+                  <motion.div
+                    layoutId="active-cat-bg"
+                    className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"
+                  />
+                )}
+                <category.Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${selectedCategory === category.id ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
+                <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${selectedCategory === category.id ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'}`}>
+                  {category.name}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
 

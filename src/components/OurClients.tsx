@@ -1,18 +1,18 @@
 import React from 'react';
 
 /* ─── OurClients — Ultra Professional Planetary Orbit ────── */
-const ring1 = ['2-1','3-1','4-1','5-1','6-1','7','8','9','10','11'];
-const ring2 = ['12','13','14','15','16','17','18','19','20','21','22','23'];
-const ring3 = ['24','25','26','27','28','29','30','31','32','33','34','35','1-1'];
-const ring4 = ['13','12','11','10','9','8','7','6','5','4','3','2','1'];
+const ring1 = ['2-1', '3-1', '4-1', '5-1', '6-1', '7', '8', '9', '10', '11'];
+const ring2 = ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+const ring3 = ['24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '1-1'];
+const ring4 = ['13', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1'];
 
 export default function OurClients() {
   return (
     <section
       id="our-clients"
-      style={{ 
-        background: '#080c14', 
-        padding: '160px 0', 
+      style={{
+        background: '#080c14',
+        padding: '160px 0',
         overflow: 'hidden',
         position: 'relative',
         zIndex: 1
@@ -161,7 +161,7 @@ export default function OurClients() {
       `}</style>
 
       {/* Heading */}
-      <div style={{ textAlign: 'center', marginBottom: '100px', position: 'relative', zIndex: 10 }}>
+      <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
         <h2 style={{
           fontSize: 'clamp(40px, 7vw, 84px)',
           fontFamily: '"Inter", sans-serif',
@@ -177,7 +177,7 @@ export default function OurClients() {
 
       <div className="oc-wrapper">
         <div className="oc-container">
-          
+
           {/* Center Badge */}
           <div className="oc-center">
             <span className="brand-name">Rankriseusa</span>
@@ -202,37 +202,37 @@ function Ring({ logos, radius, duration, direction }: { logos: string[], radius:
     <>
       {/* Visual Orbit Line */}
       <div className="oc-ring-line" style={{ width: radius * 2, height: radius * 2 }} />
-      
+
       {/* Rotating Ring Container */}
       <div className={`orbiting-content ${direction}`} style={{ animationDuration: `${duration}s` }}>
         {logos.map((n, i) => {
           const angleDeg = (i / logos.length) * 360;
           const angleRad = (angleDeg * Math.PI) / 180;
-          
+
           // Pre-calculate positions
           const x = radius * Math.cos(angleRad);
           const y = radius * Math.sin(angleRad);
-          
+
           return (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="orbit-logo-wrap"
               style={{
                 transform: `translate(${x}px, ${y}px)`
               }}
             >
               {/* Counter-rotate to stay upright */}
-              <div 
-                className={`orbiting-content ${direction === 'cw' ? 'ccw' : 'cw'}`} 
+              <div
+                className={`orbiting-content ${direction === 'cw' ? 'ccw' : 'cw'}`}
                 style={{ animationDuration: `${duration}s`, width: '80px', height: '80px', transform: 'translate(-50%, -50%)' }}
               >
                 <div className="orbit-logo-inner">
-                  <img 
-                    src={`https://admarkdigitalmedia.com/wp-content/uploads/2025/12/${logos.length === 13 && i >= 12 ? '1-1' : n.includes('/') ? n : n + '.png'}`} 
-                    alt="client" 
+                  <img
+                    src={`https://admarkdigitalmedia.com/wp-content/uploads/2025/12/${logos.length === 13 && i >= 12 ? '1-1' : n.includes('/') ? n : n + '.png'}`}
+                    alt="client"
                     onError={(e) => {
                       if (logos === ring4) {
-                         (e.target as HTMLImageElement).src = `https://admarkdigitalmedia.com/wp-content/uploads/2026/01/${n}.png`;
+                        (e.target as HTMLImageElement).src = `https://admarkdigitalmedia.com/wp-content/uploads/2026/01/${n}.png`;
                       }
                     }}
                   />

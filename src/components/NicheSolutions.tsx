@@ -48,10 +48,10 @@ export default function NicheSolutions() {
       <div className="absolute inset-0 neural-grid opacity-[0.03]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
           
           {/* Left Side: Accordion */}
-          <div className="lg:w-1/2 space-y-10">
+          <div className="w-full lg:w-1/2 space-y-8 lg:space-y-10">
             <div className="mb-16">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -67,7 +67,7 @@ export default function NicheSolutions() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-5xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase mb-8"
+                className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase mb-6 lg:mb-8"
               >
                 Specialized <br />
                 <span className="text-gradient-gold italic">Intelligence.</span>
@@ -162,7 +162,7 @@ export default function NicheSolutions() {
                 initial={{ opacity: 0, scale: 0.9, rotate: -10 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative h-full bg-[#0d1117] rounded-[4rem] border border-white/5 shadow-[0_50px_100px_rgba(0,0,0,0.5)] p-16 flex flex-col justify-center overflow-hidden group"
+                className="relative h-full bg-[#0d1117] rounded-[3rem] lg:rounded-[4rem] border border-white/5 shadow-[0_50px_100px_rgba(0,0,0,0.5)] p-8 lg:p-16 flex flex-col justify-center overflow-hidden group"
               >
                 {/* Visual Accent Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -186,7 +186,7 @@ export default function NicheSolutions() {
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="text-5xl font-black text-white mb-8 uppercase tracking-tighter leading-none"
+                      className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 lg:mb-8 uppercase tracking-tighter leading-none"
                     >
                       {niches.find(n => n.id === activeNiche)?.title}
                     </motion.h3>

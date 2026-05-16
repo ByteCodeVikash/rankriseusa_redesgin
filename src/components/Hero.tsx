@@ -10,7 +10,7 @@ export default function Hero() {
   const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#2D1B1B]">
+    <section className="relative w-full h-[70dvh] md:h-[100dvh] flex items-center justify-center overflow-hidden bg-[#2D1B1B]">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -37,11 +37,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="mt-80 relative group"
+            className="mt-20 md:mt-80 relative group"
           >
             {/* Glowing effect behind button */}
             <div className="absolute inset-0 bg-[#EAB308]/20 blur-3xl rounded-full scale-150 animate-pulse group-hover:bg-[#EAB308]/40 transition-colors" />
-            
+
             <Link to="/contact" className="relative z-10">
               <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-[0.2em] px-10 py-6 h-auto rounded-full text-[11px] group shadow-[0_15px_40px_rgba(234,179,8,0.25)] transition-all duration-500 hover:scale-105 active:scale-95 border-b-2 border-black/10">
                 Initiate Strategy

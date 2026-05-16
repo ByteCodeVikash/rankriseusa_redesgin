@@ -119,21 +119,21 @@ export default function MarketingBranding() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer hover:scale-105 shadow-2xl relative group"
+              className="aspect-[4/3] rounded-3xl overflow-hidden border border-white/5 transition-all duration-700 cursor-pointer hover:scale-105 shadow-2xl relative group"
             >
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-20 transition-opacity z-10" />
               <img src={img} alt="Marketing Creative" className="w-full h-full object-cover" />
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-24 text-center">
-           <Link to="/contact">
-              <Button className="h-20 px-16 rounded-full bg-primary text-background font-black uppercase tracking-[0.3em] hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-primary/20 relative z-10">
-                Start a Project
-                <ArrowRight className="w-6 h-6 ml-4" />
-              </Button>
-           </Link>
+          <Link to="/contact">
+            <Button className="h-20 px-16 rounded-full bg-primary text-background font-black uppercase tracking-[0.3em] hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-primary/20 relative z-10">
+              Start a Project
+              <ArrowRight className="w-6 h-6 ml-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
