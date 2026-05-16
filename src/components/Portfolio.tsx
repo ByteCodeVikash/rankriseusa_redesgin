@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, TrendingUp, Users, Zap, Star, ArrowRight, Sparkles, Code, Brain, Target, BarChart3, Shield } from 'lucide-react';
+import { Zap, ArrowRight, Sparkles, Target, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -91,8 +91,8 @@ export default function Portfolio() {
               viewport={{ once: true }}
               className="text-6xl sm:text-8xl xl:text-9xl font-black mb-10 text-white leading-[0.85] tracking-tighter uppercase"
             >
-              Proven <br />
-              <span className="text-gradient-gold italic">Superiority.</span>
+              Dominating <br />
+              <span className="text-gradient-gold italic">The Web.</span>
             </motion.h2>
 
             <p className="text-xl md:text-2xl text-white/50 leading-relaxed font-medium max-w-3xl">
@@ -128,7 +128,7 @@ export default function Portfolio() {
             className="grid grid-cols-1 md:grid-cols-2 gap-16"
           >
             {filteredProjects.map((project, index) => (
-              <ProjectCard
+              <ProtocolCard
                 key={project.title}
                 project={project}
                 index={index}
@@ -138,17 +138,76 @@ export default function Portfolio() {
           </motion.div>
         </AnimatePresence>
 
+        {/* Marketing & Branding Section */}
+        <section className="py-32 mt-20 relative">
+          <div className="text-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="mb-8"
+            >
+              <span className="px-6 py-2 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.4em] border border-primary/20">
+                GROWTH ARCHITECTURE
+              </span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter uppercase italic leading-[0.9]"
+            >
+              Grow Faster With <br />
+              <span className="text-gradient-gold">Marketing + Brand Identity</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-white/40 max-w-3xl mx-auto font-medium text-lg lg:text-2xl leading-relaxed"
+            >
+              A combined strategy section for lead generation, visibility, and memorable brand presence.
+            </motion.p>
+          </div>
+
+          {/* Marketing Cards Grid */}
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+            {marketingBenefits.map((benefit, i) => (
+              <MarketingCard key={i} benefit={benefit} index={i} />
+            ))}
+          </div> */}
+
+          {/* Asset Grid (Neural Media) */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {marketingAssets.map((img, i) => (
+              <AssetCard key={i} img={img} index={i} />
+            ))}
+          </div> */}
+
+          <div className="mt-24 text-center">
+            <Link to="/contact">
+              <Button className="h-20 px-16 rounded-full bg-primary text-background font-black uppercase tracking-[0.3em] hover:bg-white hover:scale-105 transition-all shadow-[0_20px_50px_rgba(250,204,21,0.3)] relative z-10 group">
+                Initialize Protocol
+                <ArrowRight className="w-6 h-6 ml-4 group-hover:translate-x-2 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-32"
+          className="text-center mt-40"
         >
           <Link to="/contact">
-            <Button className="button-premium text-sm uppercase tracking-[0.2em] px-16 py-10 h-auto rounded-[2.5rem] font-black group">
+            <Button className="button-premium text-sm uppercase tracking-[0.2em] px-20 py-12 h-auto rounded-[3rem] font-black group">
               <Zap className="w-6 h-6 fill-background mr-4 group-hover:scale-125 transition-transform" />
-              Replicate This protocol
+              Replicate Success protocol
             </Button>
           </Link>
         </motion.div>
@@ -235,7 +294,99 @@ export default function Portfolio() {
   );
 }
 
-function ProjectCard({ project, index, onClick }: any) {
+// const marketingBenefits = [
+//   {
+//     title: 'Brand Identity',
+//     icon: Sparkles,
+//     description: 'Logos, visual systems, and consistent brand assets that make your business look polished and memorable.',
+//     highlight: 'Clear brand direction',
+//     color: 'text-primary'
+//   },
+//   {
+//     title: 'Social Media Marketing',
+//     icon: Zap,
+//     description: 'Creative content planning and campaign direction to help your brand stay visible and engaging.',
+//     highlight: 'Better audience reach',
+//     color: 'text-blue-400'
+//   },
+//   {
+//     title: 'Performance Advertising',
+//     icon: Target,
+//     description: 'Targeted ad strategies designed to bring in leads, boost sales, and improve campaign efficiency.',
+//     highlight: 'Focused conversions',
+//     color: 'text-orange-400'
+//   },
+//   {
+//     title: 'Email Marketing',
+//     icon: Mail,
+//     description: 'Simple, effective email flows that help you stay connected with customers and drive repeat business.',
+//     highlight: 'Stronger retention',
+//     color: 'text-green-400'
+//   }
+// ];
+
+// const marketingAssets = [
+//   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80',
+//   'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80',
+//   'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&q=80',
+//   'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',
+//   'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&q=80',
+//   'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&q=80'
+// ];
+
+// function MarketingCard({ benefit, index }: any) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 30 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       viewport={{ once: true }}
+//       transition={{ delay: index * 0.1, duration: 0.8 }}
+//       className="group relative p-10 rounded-[3.5rem] bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-primary/40 transition-all duration-700 overflow-hidden hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(250,204,21,0.05)]"
+//     >
+//       <div className="absolute -right-20 -top-20 w-40 h-40 bg-primary/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+//       <div className={`w-20 h-20 rounded-3xl bg-white/5 border border-white/5 flex items-center justify-center mb-10 shadow-2xl group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-500 ${benefit.color}`}>
+//         <benefit.icon className="w-10 h-10 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6" />
+//       </div>
+
+//       <h3 className="text-3xl font-black text-white mb-4 italic uppercase tracking-tighter leading-none">{benefit.title}</h3>
+
+//       <p className="text-white/40 text-base mb-12 leading-relaxed font-bold">
+//         {benefit.description}
+//       </p>
+
+//       <div className="flex items-center gap-4 pt-10 border-t border-white/5 relative z-10">
+//         <div className="relative flex items-center justify-center w-4 h-4">
+//           <div className="w-2.5 h-2.5 rounded-full bg-primary/30 animate-ping absolute" />
+//           <div className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_15px_rgba(250,204,21,0.8)]" />
+//         </div>
+//         <span className="text-[11px] font-black text-primary uppercase tracking-[0.4em]">
+//           {benefit.highlight}
+//         </span>
+//       </div>
+//     </motion.div>
+//   );
+// }
+
+// function AssetCard({ img, index }: any) {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, scale: 0.9 }}
+//       whileInView={{ opacity: 1, scale: 1 }}
+//       viewport={{ once: true }}
+//       transition={{ delay: index * 0.05 }}
+//       className="aspect-square rounded-[2rem] overflow-hidden border border-white/5 grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer hover:scale-105 shadow-2xl relative group"
+//     >
+//       <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-20 transition-opacity z-10" />
+//       <img src={img} alt="Marketing Asset" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+//       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+//         <span className="text-[10px] font-black text-white uppercase tracking-widest">Protocol Asset #{index + 1}</span>
+//       </div>
+//     </motion.div>
+//   );
+// }
+
+function ProtocolCard({ project, index, onClick }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -249,33 +400,41 @@ function ProjectCard({ project, index, onClick }: any) {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s] group-hover:scale-110"
+          className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-[2s] group-hover:scale-125"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d1117] via-[#0d1117]/20 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-1000" />
 
+        {/* Floating Category Badge */}
+        <div className="absolute top-10 left-10 px-6 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-primary text-[10px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-4 group-hover:translate-y-0">
+          {project.category}
+        </div>
+
         {/* Action Icon */}
-        <div className="absolute top-12 right-12 w-20 h-20 rounded-3xl bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-x-8 group-hover:translate-x-0 shadow-2xl">
-          <ArrowRight className="w-8 h-8 text-background -rotate-45" />
+        <div className="absolute top-10 right-10 w-16 h-16 rounded-2xl bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 translate-x-8 group-hover:translate-x-0 shadow-[0_0_30px_rgba(250,204,21,0.5)]">
+          <ArrowRight className="w-6 h-6 text-background -rotate-45" />
         </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-16">
         <div className="space-y-6">
           <div className="flex items-center gap-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
-            <span className="w-12 h-0.5 bg-primary" />
+            <div className="relative flex items-center justify-center w-3 h-3">
+              <div className="w-2 h-2 rounded-full bg-primary/30 animate-ping absolute" />
+              <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(250,204,21,0.8)]" />
+            </div>
             <span className="text-[12px] font-black uppercase tracking-[0.4em] text-primary">
-              {project.category}
+              Success Protocol
             </span>
           </div>
-          <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter group-hover:text-primary transition-all duration-700 uppercase italic">
+          <h3 className="text-4xl md:text-5xl font-black text-white tracking-tighter group-hover:text-primary transition-all duration-700 uppercase italic leading-none">
             {project.title}
           </h3>
 
           <div className="flex gap-16 pt-8 opacity-0 group-hover:opacity-100 transition-all duration-1000 translate-y-12 group-hover:translate-y-0 delay-200">
             {Object.entries(project.stats).slice(0, 2).map(([key, value]) => (
               <div key={key} className="flex flex-col">
-                {/* <span className="text-3xl font-black text-white tracking-tight">{value}</span> */}
-                <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mt-1">{key}</span>
+                {/* <span className="text-2xl font-black text-white tracking-tight leading-none group-hover:text-primary transition-colors">{value}</span> */}
+                <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mt-2">{key}</span>
               </div>
             ))}
           </div>

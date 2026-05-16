@@ -8,6 +8,7 @@ import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import WorkShowcase3D from '../components/WorkShowcase3D';
 import OurClients from '../components/OurClients';
+import MarketingBranding from '../components/MarketingBranding';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <NicheSolutions />
       <About />
       <WorkShowcase3D />
+      <MarketingBranding />
       <OurClients />
       <Process />
       <Testimonials />

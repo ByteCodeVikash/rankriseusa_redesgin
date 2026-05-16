@@ -101,7 +101,7 @@ export default function AnmlServices() {
         }
       `}} />
 
-      <div className="container mx-auto px-6 lg:px-16 relative z-10">
+      <div className="w-full px-6 lg:px-16 relative z-10">
         {/* Section Header */}
         <div ref={headerRef} className="mb-40 relative">
           <motion.div
@@ -150,7 +150,7 @@ function LineReveal({ text, delay = 0 }: { text: string, delay?: number }) {
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
-        className="block"
+        className="block text-[1.2rem] md:text-[4rem] font-medium tracking-[0.02em] text-white/30 hover:text-white transition-colors duration-300"
       >
         {text}
       </motion.span>
@@ -161,98 +161,74 @@ function LineReveal({ text, delay = 0 }: { text: string, delay?: number }) {
 function ServiceBlock({ service, index }: { service: typeof services[0], index: number }) {
   const container = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"]
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const progressWidth = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!container.current) return;
-    const rect = container.current.getBoundingClientRect();
-    container.current.style.setProperty('--x', `${e.clientX - rect.left}px`);
-    container.current.style.setProperty('--y', `${e.clientY - rect.top}px`);
-  };
-
   return (
     <div
       ref={container}
-      onMouseMove={handleMouseMove}
-      className="sticky top-0 h-screen flex items-center bg-[#05070a] border-t border-white/5 overflow-hidden group/block spotlight-container will-change-transform"
+      className="sticky top-[30vh] min-h-[20vh] bg-black border-t border-b border-white/80"
       style={{ zIndex: index + 1 }}
     >
-      {/* Interactive Spotlight Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0 spotlight transition-opacity duration-1000 opacity-0 group-hover/block:opacity-100" />
-
-      {/* Progress Line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5 z-20">
-        <motion.div
-          style={{ scaleX: progressWidth, originX: 0 }}
-          className="absolute top-0 left-0 w-full h-full bg-primary shadow-[0_0_20px_rgba(250,204,21,0.6)]"
-        />
-      </div>
-
       <motion.div
-        style={{
-          scale: index === services.length - 1 ? 1 : scale,
-          opacity: index === services.length - 1 ? 1 : opacity
-        }}
-        className="w-full h-full flex flex-col lg:flex-row px-6 lg:px-20 relative z-10"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="min-h-[70vh] grid grid-cols-1 lg:grid-cols-[58%_42%] px-0 py-20 lg:py-16"
       >
-        {/* Left Column: Number & Title */}
-        <div className="lg:w-[45%] flex flex-col justify-center items-center py-16 lg:py-0 text-center">
-          <motion.div
-            style={{ y: titleY }}
-            className="flex flex-col items-center gap-8 lg:gap-14"
-          >
-            <div className="flex flex-col items-center gap-4">
-              <span className="text-[10px] font-black uppercase tracking-[1em] text-primary/50">
-                Protocol
-              </span>
-              <span className="text-3xl font-black text-primary leading-none">
-                {service.id}
-              </span>
-            </div>
+        {/* Left Column */}
+        <div className="flex flex-col justify-start">
+          <h4 className="text-2xl lg:text-[1.8rem] font-black text-white mb-3 tracking-tight">
+            {service.id}/
+          </h4>
 
-            <div className="relative">
-              <h3 className="text-3xl lg:text-[4.5rem] font-black text-white tracking-[-0.06em] leading-[0.85] mb-12 lg:mb-20">
-                {service.title}
-              </h3>
+          <h2 className="text-[3rem] md:text-[4rem] lg:text-[4rem] font-black text-white tracking-[-0.08em] leading-[0.9] pl-8 lg:pl-16 px-20">
+            <motion.span
+              initial={{ opacity: 0, y: "100%", rotate: 2 }}
+              whileInView={{ opacity: 1, y: "0%", rotate: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="block overflow-hidden"
+            >
+              {service.title}
+            </motion.span>
+          </h2>
+        </div>
 
-              <Link
-                to={service.link}
-                className="inline-flex flex-col items-center gap-6 group/link relative"
+        {/* Right Column */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="flex flex-col justify-start pt-8 lg:pt-14 ml-auto"
+        >
+          <ul className="space-y-3 mb-12 group">
+            {service.items.slice(0, 5).map((item, i) => (
+              <li
+                key={i}
+                className="
+        text-sm lg:text-[1rem]
+        font-medium
+        leading-relaxed
+        tracking-[0.01em]
+        text-white/60
+        hover:text-white
+        transition-all
+        duration-300
+        cursor-default
+      "
               >
-                <div className="absolute inset-0 bg-primary/20 blur-[40px] rounded-full opacity-0 group-hover/link:opacity-100 transition-opacity duration-500" />
-
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 15 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-20 h-20 lg:w-28 lg:h-28 rounded-full border-2 border-white/10 flex items-center justify-center group-hover/link:bg-primary group-hover/link:border-primary group-hover/link:text-background transition-all duration-700 relative z-10"
-                >
-                  <ArrowUpRight className="w-8 h-8 lg:w-12 lg:h-12" />
-                </motion.div>
-
-                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/30 group-hover/link:text-primary transition-all duration-500 group-hover/link:tracking-[0.7em]">
-                  View Ecosystem
-                </span>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right Column: List items */}
-        <div className="lg:w-[55%] flex flex-col justify-start overflow-y-auto no-scrollbar h-full relative py-20 lg:py-48">
-          <div className="space-y-8 lg:space-y-20 lg:pl-32 border-l border-white/5">
-            {service.items.map((item, i) => (
-              <ServiceItem key={i} item={item} index={i} icon={service.accentIcon} />
+                {item}
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+
+          <Link
+            to={service.link}
+            className="w-fit text-2xl font-bold text-white border-b border-white leading-none pb-1 hover:text-primary hover:border-primary transition-colors"
+          >
+            View all
+          </Link>
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -283,7 +259,7 @@ function ServiceItem({ item, index, icon: Icon }: { item: string, index: number,
 
       <div className="flex-1 border-b border-white/5 pb-8 group-hover:border-primary/20 transition-colors duration-500">
         <div className="flex items-center justify-between">
-          <h4 className="text-sm lg:text-[3rem] font-bold text-white/10 group-hover:text-white transition-all duration-500 cursor-default tracking-tighter leading-tight">
+          <h4 className="text-[20px] lg:text-[2rem] font-bold text-white/10 group-hover:text-white transition-all duration-500 cursor-default tracking-tighter leading-tight">
             {item}
           </h4>
           <span className="text-[10px] font-black text-white/5 group-hover:text-primary transition-colors duration-500">
