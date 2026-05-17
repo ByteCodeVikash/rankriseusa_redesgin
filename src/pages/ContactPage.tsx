@@ -8,7 +8,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-        
+
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -45,21 +45,21 @@ export default function ContactPage() {
                   <span className="w-2 h-8 bg-primary rounded-full" />
                   Secure Briefing Portal
                 </h2>
-                
+
                 <form className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Operator Name</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         placeholder="John Doe"
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
                       />
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Secure Email</label>
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         placeholder="john@company.ai"
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all"
                       />
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
                   <div className="space-y-2">
                     <label className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground ml-2">Mission Details</label>
-                    <textarea 
+                    <textarea
                       placeholder="Describe your current landscape and targets..."
                       rows={5}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all resize-none"
@@ -124,7 +124,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Direct Command Line</div>
-                      <div className="text-xl font-black text-foreground">+1 (888) RANK-AI</div>
+                      <div className="text-xl font-black text-foreground">+1 202 888 2806</div>
                     </div>
                   </div>
                 </div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
       </section>
 
       {/* Global Support Map Placeholder */}
-      <section className="py-20 bg-white/5 border-t border-white/5">
+      {/* <section className="py-20 bg-white/5 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-widest">Global Command Network</h3>
@@ -182,7 +182,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

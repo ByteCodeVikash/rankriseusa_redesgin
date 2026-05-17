@@ -29,7 +29,7 @@ function TopBar() {
           </a>
           <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-primary transition-colors">
             <Phone className="w-3.5 h-3.5 text-primary" />
-            +1 (234) 567-890
+            +1 202 888 2806
           </a>
         </div>
       </div>
@@ -102,8 +102,8 @@ export default function Navigation() {
                   >
                     <span
                       className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${location.pathname === item.path
-                          ? 'text-primary'
-                          : 'text-white/70 group-hover:text-primary'
+                        ? 'text-primary'
+                        : 'text-white/70 group-hover:text-primary'
                         }`}
                     >
                       {item.name}
@@ -167,8 +167,8 @@ export default function Navigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   className={`text-2xl font-bold p-5 rounded-2xl transition-all ${location.pathname === item.path
-                      ? 'text-primary bg-primary/10 border-2 border-primary/20'
-                      : 'text-foreground hover:bg-muted'
+                    ? 'text-primary bg-primary/10 border-2 border-primary/20'
+                    : 'text-foreground hover:bg-muted'
                     }`}
                 >
                   {item.name}

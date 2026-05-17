@@ -20,7 +20,7 @@ import {
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
 import { submitToSheet } from '@/lib/utils';
@@ -32,11 +32,34 @@ const UK_COORDS: [number, number] = [-1.5, 54.0];
 const UAE_COORDS: [number, number] = [55.2708, 25.2048];
 
 function GlobalPresenceMap() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
   return (
     <div
-      className="w-full rounded-[3rem] overflow-hidden border border-white/5 mb-16 relative bg-[#05070a]"
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="w-full rounded-[3rem] overflow-hidden border border-white/5 mb-16 relative bg-[#05070a] group"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
+      {/* Interactive Lighting Effect */}
+      <div 
+        className="absolute w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
+        style={{
+          left: mousePos.x - 250,
+          top: mousePos.y - 250,
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none z-0" />
 
       {/* Legend */}
       <div className="flex items-center justify-end gap-6 px-10 pt-8 pb-2 relative z-10">
@@ -56,7 +79,7 @@ function GlobalPresenceMap() {
           width={960}
           height={320}
           projectionConfig={{ scale: 150, center: [20, 10] }}
-          style={{ width: '100%', height: 'auto', display: 'block' }}
+          style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 10 }}
         >
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
@@ -68,8 +91,8 @@ function GlobalPresenceMap() {
                   stroke="rgba(255,215,0,0.1)"
                   strokeWidth={0.5}
                   style={{
-                    default: { outline: 'none' },
-                    hover: { outline: 'none', fill: 'rgba(255,215,0,0.05)' },
+                    default: { outline: 'none', transition: 'all 0.3s' },
+                    hover: { outline: 'none', fill: 'rgba(250,204,21,0.2)', stroke: 'rgba(250,204,21,0.6)', transition: 'all 0.3s' },
                     pressed: { outline: 'none' },
                   }}
                 />
@@ -102,7 +125,7 @@ function GlobalPresenceMap() {
       </div>
 
       {/* Address Strip */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 px-10 pb-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 px-10 pb-10 relative z-10">
         {[
           { city: 'Washington, DC', status: 'Global HQ', flag: '🇺🇸', color: 'primary' },
           { city: 'Greater Noida', status: 'Neural Hub', flag: '🇮🇳', color: 'blue-500' },

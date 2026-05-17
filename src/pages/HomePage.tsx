@@ -24,8 +24,8 @@ export default function HomePage() {
       <OurClients />
       <Process />
       <Testimonials />
-      {/* <Blog /> */}
       <TrustedBy />
+      {/* <Blog /> */}
       <Contact />
     </main>
   );
