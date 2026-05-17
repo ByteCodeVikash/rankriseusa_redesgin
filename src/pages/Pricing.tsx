@@ -1185,21 +1185,21 @@ export default function PricingPage() {
       <div className="hidden lg:block">
         <Link
           to="/custom-plan"
-          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-pink-700 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+          className="fixed left-8 top-1/2 -translate-y-1/2 z-0 flex items-center gap-3 bg-pink-700 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
         >
           {/* <Sparkles className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
           <span className="uppercase tracking-widest">Custom Plan</span>
         </Link>
         <Link
           to="/cost-calculator"
-          className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex items-center gap-3 bg-blue-500 backdrop-blur-xl border border-white/10 text-foreground px-4 py-3 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
+          className="fixed right-8 top-1/2 -translate-y-1/2 z-0 flex items-center gap-3 bg-blue-500 backdrop-blur-xl border border-white/10 text-foreground px-4 py-3 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
         >
           {/* <Calculator className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
           <span className="uppercase tracking-widest">Cost Calculator</span>
         </Link>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-24">
           <motion.div
