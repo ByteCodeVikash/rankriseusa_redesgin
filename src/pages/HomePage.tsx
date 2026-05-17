@@ -9,13 +9,15 @@ import Contact from '../components/Contact';
 import WorkShowcase3D from '../components/WorkShowcase3D';
 import OurClients from '../components/OurClients';
 import MarketingBranding from '../components/MarketingBranding';
+import TrustedBy from '../components/TrustedBy';
 
 export default function HomePage() {
   return (
     <main className="bg-[#05070a]">
       <Hero />
       <Services />
-      {/* <NicheSolutions /> */}
+      <NicheSolutions />
+      <TrustedBy />
       <About />
       <WorkShowcase3D />
       <MarketingBranding />

@@ -26,10 +26,10 @@ import { Link } from 'react-router-dom';
 import { submitToSheet } from '@/lib/utils';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
-const DC_COORDS:    [number, number] = [-77.0369, 38.9072];
-const NOIDA_COORDS: [number, number] = [77.4538,  28.4744];
-const UK_COORDS:    [number, number] = [-1.5,     54.0];
-const UAE_COORDS:   [number, number] = [55.2708,  25.2048];
+const DC_COORDS: [number, number] = [-77.0369, 38.9072];
+const NOIDA_COORDS: [number, number] = [77.4538, 28.4744];
+const UK_COORDS: [number, number] = [-1.5, 54.0];
+const UAE_COORDS: [number, number] = [55.2708, 25.2048];
 
 function GlobalPresenceMap() {
   return (
@@ -37,7 +37,7 @@ function GlobalPresenceMap() {
       className="w-full rounded-[3rem] overflow-hidden border border-white/5 mb-16 relative bg-[#05070a]"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
-      
+
       {/* Legend */}
       <div className="flex items-center justify-end gap-6 px-10 pt-8 pb-2 relative z-10">
         <div className="flex items-center gap-2">
@@ -69,7 +69,7 @@ function GlobalPresenceMap() {
                   strokeWidth={0.5}
                   style={{
                     default: { outline: 'none' },
-                    hover:   { outline: 'none', fill: 'rgba(255,215,0,0.05)' },
+                    hover: { outline: 'none', fill: 'rgba(255,215,0,0.05)' },
                     pressed: { outline: 'none' },
                   }}
                 />
@@ -159,15 +159,15 @@ export default function Footer() {
           {/* Brand & Newsletter */}
           <div className="lg:col-span-4 space-y-12">
             <Link to="/" className="inline-block">
-              <img 
-                src="/assets/images/logo1.png" 
-                alt="Rankriseusa" 
-                className="h-14 w-auto object-contain grayscale invert brightness-200 mix-blend-screen" 
+              <img
+                src="/assets/images/logo1.png"
+                alt="Rankriseusa"
+                className="h-14 w-auto object-contain grayscale invert brightness-200 mix-blend-screen"
               />
             </Link>
-            
+
             <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-              We architect the digital future. Our neural systems empower 
+              We architect the digital future. Our neural systems empower
               the world's most ambitious founders and tech leaders.
             </p>
 
