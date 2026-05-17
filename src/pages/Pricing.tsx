@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Share2, Megaphone, Code, Sparkles, Calculator,
-  X, Check, Shield, CreditCard, Smartphone, Cloud, Database,
+  X, Check, Shield, CreditCard, Smartphone, Cloud, Database
+} from 'lucide-react';
+import {
   Globe, Lock, PenTool, Star, Rocket, Crown, Zap, Briefcase,
   TrendingUp, Users, Settings, HardDrive, Cpu, ArrowRight,
-  ShieldCheck, ZapOff, Layers, Activity, Plus, Clock
+  ShieldCheck, ZapOff, Layers, Activity, Plus as PlusIcon, Clock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { submitToSheet } from '@/lib/utils';
@@ -1139,7 +1141,7 @@ export default function PricingPage() {
                 onClick={() => setIsAllExpanded(!isAllExpanded)}
                 className="mt-4 ml-9 md:ml-3 inline-flex items-center gap-1.5 rounded-full bg-primary/5 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary/10"
               >
-                <Plus
+                <PlusIcon
                   className={`h-3 w-3 transition-transform ${isExpanded ? "rotate-45" : ""
                     }`}
                 />

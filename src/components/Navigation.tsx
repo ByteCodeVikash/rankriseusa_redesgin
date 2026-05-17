@@ -61,7 +61,7 @@ export default function Navigation() {
     { name: 'Services', path: '/services' },
     { name: 'Courses', path: '/courses' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Pricing', path: '/price' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'About Us', path: '/about' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },

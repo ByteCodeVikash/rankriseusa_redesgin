@@ -66,7 +66,7 @@ export default function App() {
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/price" element={<PricingPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
               <Route path="/free-audit" element={<FreeAuditPage />} />
               <Route path="/custom-plan" element={<CustomPlanPage />} />
               <Route path="/cost-calculator" element={<Costcalculatorpage />} />
