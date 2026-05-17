@@ -17,14 +17,15 @@ export default function HomePage() {
       <Hero />
       <Services />
       <NicheSolutions />
-      <TrustedBy />
+
       <About />
       <WorkShowcase3D />
       <MarketingBranding />
       <OurClients />
       <Process />
       <Testimonials />
-      <Blog />
+      {/* <Blog /> */}
+      <TrustedBy />
       <Contact />
     </main>
   );

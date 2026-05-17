@@ -3,16 +3,16 @@ import { Star } from 'lucide-react';
 
 export default function TrustedBy() {
   return (
-    <section className="py-24 bg-[#fafbfc] relative overflow-hidden">
+    <section className="py-24 bg-black relative overflow-hidden">
       {/* Subtle dot pattern background */}
-      <div 
-        className="absolute inset-0 opacity-40 pointer-events-none" 
-        style={{ backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px)', backgroundSize: '24px 24px' }} 
+      <div
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px)', backgroundSize: '24px 24px' }}
       />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -24,10 +24,10 @@ export default function TrustedBy() {
 
         <div className="flex flex-wrap justify-center gap-6 max-w-[1000px] mx-auto">
           {/* Card 1: Google Partner */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-4 hover:-translate-y-1 transition-transform"
           >
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="w-20" />
@@ -35,25 +35,25 @@ export default function TrustedBy() {
           </motion.div>
 
           {/* Card 2: HubSpot */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
-            transition={{delay:0.1}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-3 hover:-translate-y-1 transition-transform"
           >
             <div className="w-12 h-12 bg-[#ff7a59] rounded-xl flex items-center justify-center shadow-sm">
               <span className="text-white font-black text-2xl">H</span>
             </div>
-            <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider text-center leading-relaxed">Inbound Marketing<br/>Certified</span>
+            <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider text-center leading-relaxed">Inbound Marketing<br />Certified</span>
           </motion.div>
 
           {/* Card 3: Google Reviews */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
-            transition={{delay:0.2}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-2 hover:-translate-y-1 transition-transform"
           >
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="w-20 mb-1" />
@@ -64,11 +64,11 @@ export default function TrustedBy() {
           </motion.div>
 
           {/* Card 4: Clutch */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
-            transition={{delay:0.3}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-2 hover:-translate-y-1 transition-transform"
           >
             <span className="text-2xl font-black text-slate-900 tracking-tight">Clutch</span>
@@ -79,11 +79,11 @@ export default function TrustedBy() {
           </motion.div>
 
           {/* Card 5: Trustpilot */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
-            transition={{delay:0.4}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-2 hover:-translate-y-1 transition-transform"
           >
             <div className="flex items-center gap-2 mb-2">
@@ -102,11 +102,11 @@ export default function TrustedBy() {
           </motion.div>
 
           {/* Card 6: TechForex */}
-          <motion.div 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once:true}} 
-            transition={{delay:0.5}} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
             className="w-[170px] h-[160px] bg-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center justify-center p-6 gap-2 hover:-translate-y-1 transition-transform"
           >
             <div className="w-10 h-10 bg-[#00b67a] rounded-full flex items-center justify-center mb-1 shadow-sm">
