@@ -135,10 +135,10 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: '#' },
-    { icon: Twitter, href: '#' },
-    { icon: Instagram, href: '#' },
-    { icon: Github, href: '#' },
+    { icon: Linkedin, href: '#', colorClass: 'text-[#0077b5] group-hover:shadow-[0_0_15px_#0077b5]' },
+    { icon: Twitter, href: '#', colorClass: 'text-[#1da1f2] group-hover:shadow-[0_0_15px_#1da1f2]' },
+    { icon: Instagram, href: '#', colorClass: 'text-[#e1306c] group-hover:shadow-[0_0_15px_#e1306c]' },
+    { icon: Github, href: '#', colorClass: 'text-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]' },
   ];
 
   const offices = [
@@ -192,8 +192,8 @@ export default function Footer() {
 
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
-                <a key={i} href={social.href} className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center border-white/5 hover:border-primary/50 text-muted-foreground hover:text-primary transition-all group">
-                  <social.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
+                <a key={i} href={social.href} className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center border-white/5 transition-all group hover:-translate-y-1 bg-[#0a0a0a]">
+                  <social.icon className={`w-6 h-6 transition-all group-hover:scale-110 ${social.colorClass}`} />
                 </a>
               ))}
             </div>
