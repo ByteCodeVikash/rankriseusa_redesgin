@@ -89,11 +89,11 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section className="py-24 sm:py-16 relative overflow-hidden bg-background">
       {/* Decorative Orbs */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
@@ -115,14 +115,14 @@ export default function Testimonials() {
           >
             Trusted By <span className="text-gradient-gold">Industry Giants</span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Don't just take our word for it. Hear from the leaders who are 
+            Don't just take our word for it. Hear from the leaders who are
             shaping the future with our intelligence.
           </motion.p>
         </div>
@@ -147,7 +147,7 @@ export default function Testimonials() {
                 <div className="h-full glass-card rounded-[3rem] p-10 sm:p-16 border-white/5 relative overflow-hidden flex flex-col justify-between">
                   {/* Quote Background */}
                   <Quote className="absolute -top-10 -left-10 w-48 h-48 text-primary/5 -rotate-12" />
-                  
+
                   <div className="relative z-10">
                     <div className="flex gap-1 mb-8">
                       {[...Array(5)].map((_, i) => (
@@ -218,9 +218,8 @@ export default function Testimonials() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === current ? 'w-10 bg-primary' : 'w-2 bg-white/10 hover:bg-white/20'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-10 bg-primary' : 'w-2 bg-white/10 hover:bg-white/20'
+                  }`}
               />
             ))}
           </div>

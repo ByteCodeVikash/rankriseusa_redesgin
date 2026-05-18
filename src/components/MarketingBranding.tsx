@@ -44,7 +44,7 @@ export default function MarketingBranding() {
   ];
 
   return (
-    <section className="py-40 relative overflow-hidden bg-[#05070a]">
+    <section className="py-20 relative overflow-hidden bg-[#05070a]">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-24 max-w-4xl mx-auto">
           <motion.div

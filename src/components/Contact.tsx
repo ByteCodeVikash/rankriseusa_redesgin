@@ -56,10 +56,10 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="bg-background relative overflow-hidden py-32">
+    <section id="contact" className="bg-background relative overflow-hidden py-16 md:py-32">
       {/* Background Ambience */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-primary/5 blur-[200px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] md:h-[800px] bg-primary/5 blur-[200px] rounded-full pointer-events-none" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -104,16 +104,16 @@ export default function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-card group p-8 rounded-[2.5rem] border-white/5 hover:border-primary/30 transition-all duration-500 cursor-pointer"
+                  className="glass-card group p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] border-white/5 hover:border-primary/30 transition-all duration-500 cursor-pointer"
                 >
-                  <div className="flex items-center gap-8">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl group-hover:scale-110">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
+                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-500 shadow-xl group-hover:scale-110 shrink-0">
                       <item.icon className="w-8 h-8" />
                     </div>
                     <div>
                       <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">{item.label}</p>
-                      <p className="text-2xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight">{item.value}</p>
-                      <p className="text-xs text-muted-foreground font-medium">{item.subtext}</p>
+                      <p className="text-xl sm:text-2xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight break-all sm:break-normal">{item.value}</p>
+                      <p className="text-xs text-muted-foreground font-medium mt-1">{item.subtext}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -121,9 +121,9 @@ export default function Contact() {
             </div>
 
             {/* Dashboard Stats */}
-            <div className="glass-card p-12 rounded-[3rem] border-primary/20 relative overflow-hidden bg-primary/[0.02]">
+            <div className="glass-card p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border-primary/20 relative overflow-hidden bg-primary/[0.02]">
               <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
-              <div className="relative z-10 grid grid-cols-3 gap-12">
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
                 {quickStats.map((stat, i) => (
                   <div key={i} className="text-center group">
                     <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 border border-white/10 group-hover:border-primary/50 transition-colors">
@@ -146,12 +146,12 @@ export default function Contact() {
           >
             <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <form onSubmit={handleSubmit} className="glass-card p-12 md:p-16 rounded-[4rem] border-white/10 relative z-10 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
+            <form onSubmit={handleSubmit} className="glass-card p-6 md:p-16 rounded-[2.5rem] md:rounded-[4rem] border-white/10 relative z-10 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
               <div className="space-y-10">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-4xl font-black text-foreground tracking-tighter">Secure <br /><span className="text-gradient-gold italic">Briefing.</span></h3>
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-primary" />
+                  <h3 className="text-3xl sm:text-4xl font-black text-foreground tracking-tighter">Secure <br /><span className="text-gradient-gold italic">Briefing.</span></h3>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
                 </div>
 
@@ -209,10 +209,10 @@ export default function Contact() {
                   )}
                 </Button>
 
-                <div className="flex items-center justify-center gap-8 mt-10">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mt-10">
                   {['End-to-End Encryption', 'Priority Queue', 'Direct Access'].map((badge) => (
-                    <div key={badge} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
-                      <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(255,215,0,0.5)]" />
+                    <div key={badge} className="flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/60">
+                      <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(255,215,0,0.5)] shrink-0" />
                       {badge}
                     </div>
                   ))}

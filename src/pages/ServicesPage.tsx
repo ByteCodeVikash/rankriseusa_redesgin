@@ -335,11 +335,11 @@ export default function ServicesPage() {
             <p className="text-xl md:text-3xl text-muted-foreground font-bold mb-16">
               Deploy the protocol and witness the transformation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-8 justify-center">
-              <Link to="/contact">
-                <Button className="h-24 px-16 rounded-[2rem] button-premium font-black uppercase tracking-widest text-xl group">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center w-full px-4 sm:px-0">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto h-16 sm:h-24 px-8 sm:px-16 rounded-2xl sm:rounded-[2rem] button-premium font-black uppercase tracking-widest text-sm sm:text-xl group">
                   Initiate Sync
-                  <ArrowRight className="ml-4 w-8 h-8 group-hover:translate-x-3 transition-transform" />
+                  <ArrowRight className="ml-3 sm:ml-4 w-5 h-5 sm:w-8 sm:h-8 group-hover:translate-x-3 transition-transform" />
                 </Button>
               </Link>
             </div>

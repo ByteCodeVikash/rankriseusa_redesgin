@@ -12,7 +12,7 @@ export default function OurClients() {
       id="our-clients"
       style={{
         background: '#080c14',
-        padding: '160px 0',
+        padding: '60px 0',
         overflow: 'hidden',
         position: 'relative',
         zIndex: 1
