@@ -24,7 +24,8 @@ export default function PortfolioPage() {
       title: 'Attention Seeker 3D Portfolio',
       category: 'Web Design',
       tag: 'Portfolio',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Attention-Seeker-3D-Portfolio.png',
       description: 'Immersive 3D portfolio experience with bold motion, modern layout, and a high-impact first impression.',
       link: 'https://attention-seeker-portfolio.vercel.app/'
     },
@@ -33,7 +34,8 @@ export default function PortfolioPage() {
       title: 'Digital Mark Seven',
       category: 'Web Design',
       tag: 'Agency',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Digital-Mark-Seven.png',
       description: 'Clean digital agency website built to present services, build trust, and convert visitors into inquiries.',
       link: 'https://digital-mark-seven.vercel.app/'
     },
@@ -42,7 +44,8 @@ export default function PortfolioPage() {
       title: 'DJ Intro',
       category: 'Video',
       tag: 'Web App',
-      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Dj-Intro.png',
       description: 'Stylish intro site with music-forward visuals and an energetic presentation for a DJ brand.',
       link: 'https://dj-intro.netlify.app/'
     },
@@ -51,7 +54,8 @@ export default function PortfolioPage() {
       title: 'GasXpert',
       category: 'Marketing & Branding',
       tag: 'Gas Service',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/GasXpert.png',
       description: 'Modern gas service platform with booking flow, customer support, and a clean service-first UI.',
       link: 'https://gasxpert.in/'
     },
@@ -60,7 +64,8 @@ export default function PortfolioPage() {
       title: 'Headphones Only',
       category: 'Web Design',
       tag: 'E-Commerce',
-      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Headphones-Only.png',
       description: 'Premium headphone storefront with a product-focused layout and conversion-friendly shopping experience.',
       link: 'https://headphonesonly.netlify.app/'
     },
@@ -69,7 +74,8 @@ export default function PortfolioPage() {
       title: 'Lava Flameflow Animation',
       category: 'Video',
       tag: 'Web App',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Lava-Flameflow-Animation.png',
       description: 'Experimental animated landing page with dramatic visuals and smooth motion-driven storytelling.',
       link: 'https://lava-flameflow-animation.netlify.app/'
     },
@@ -78,7 +84,8 @@ export default function PortfolioPage() {
       title: 'Live Animation Login Form',
       category: 'Web Design',
       tag: 'Web App',
-      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Live-Animation-Login-Form.png',
       description: 'Interactive login page with animated polish, designed for a modern and premium user experience.',
       link: 'https://live-animation-login-page.netlify.app/'
     },
@@ -87,7 +94,8 @@ export default function PortfolioPage() {
       title: 'Mohan Residency',
       category: 'Web Design',
       tag: 'Real Estate',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Mohan-Residency.png',
       description: 'Real estate website crafted for property showcase, lead generation, and strong visual presentation.',
       link: 'https://real-estate-mohan-residency.vercel.app/'
     },
@@ -96,7 +104,8 @@ export default function PortfolioPage() {
       title: 'My First CRM',
       category: 'Video',
       tag: 'CRM',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/My-First-CRM.png',
       description: 'A full-featured CRM web application with lead pipeline management, client contact tracking, task assignments, and an intuitive dashboard.',
       link: 'https://my-first-crm.vercel.app/'
     },
@@ -105,7 +114,8 @@ export default function PortfolioPage() {
       title: 'RankRise USA',
       category: 'Marketing & Branding',
       tag: 'Agency',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/RankRise-USA.png',
       description: 'Performance marketing and SEO-style agency site with a professional, trust-building presentation.',
       link: 'https://rankriseusa.com/'
     },
@@ -114,7 +124,8 @@ export default function PortfolioPage() {
       title: 'Shivam Portfolio Pandey',
       category: 'Web Design',
       tag: 'Portfolio',
-      image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Shivam-Portfolio-Pandey.png',
       description: 'Personal portfolio with a clean structure, strong personal branding, and project showcase sections.',
       link: 'https://shivam-portfolio-pandey.netlify.app/'
     },
@@ -123,7 +134,8 @@ export default function PortfolioPage() {
       title: 'Shopping Appa',
       category: 'Web Design',
       tag: 'E-Commerce',
-      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Shopping-Appa.png',
       description: 'Responsive shopping experience with product discovery, browsing flow, and easy-to-scan UI.',
       link: 'https://shoppingappa.netlify.app/'
     },
@@ -132,7 +144,8 @@ export default function PortfolioPage() {
       title: 'Smart Gadget Shop',
       category: 'Web Design',
       tag: 'Electronics',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Smart-Gadget-Shop.png',
       description: 'Gadget store layout built to highlight products, categories, and a modern tech-store feel.',
       link: 'https://smartgadgetshop.netlify.app/'
     },
@@ -141,7 +154,8 @@ export default function PortfolioPage() {
       title: 'Villa Options',
       category: 'Web Design',
       tag: 'Real Estate',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Villa-Options.png',
       description: 'Luxury villa presentation website with premium aesthetics and property-oriented content sections.',
       link: 'https://villaoptions.netlify.app/'
     },
@@ -150,7 +164,8 @@ export default function PortfolioPage() {
       title: 'YesGasService',
       category: 'Marketing & Branding',
       tag: 'Gas Service',
-      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/YesGasService.png',
       description: 'Gas service platform designed for quick bookings, service trust, and mobile-friendly access.',
       link: 'https://yesgasservice.in/'
     },
@@ -159,7 +174,8 @@ export default function PortfolioPage() {
       title: 'Ghar Ka Market',
       category: 'Web Design',
       tag: 'E-Commerce',
-      image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Ghar-Ka-Market.png',
       description: 'Hyperlocal marketplace concept built for local buying and selling with a simple commerce flow.',
       link: 'https://gharkamarket.in/'
     },
@@ -168,7 +184,8 @@ export default function PortfolioPage() {
       title: 'Rajasthani Royal Luxury',
       category: 'Web Design',
       tag: 'Restaurant',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Rajasthani-Royal-Luxury.png',
       description: 'Premium restaurant website showcasing luxury dining experience, menu, and ambiance.',
       link: 'https://rajasthani-royal-luxury-website-raj.vercel.app/'
     },
@@ -177,7 +194,8 @@ export default function PortfolioPage() {
       title: 'RankRise USA Redesign',
       category: 'Marketing & Branding',
       tag: 'IT & Digital Marketing',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/RankRise-USA-Redesign.png',
       description: 'Redesigned IT and digital marketing agency website with modern aesthetics and performance focus.',
       link: 'https://rankriseusa-redesgin.vercel.app/'
     },
@@ -186,7 +204,8 @@ export default function PortfolioPage() {
       title: 'Shivraj Hotel',
       category: 'Web Design',
       tag: 'Hotel',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Shivraj-Hotel.png',
       description: 'Hotel booking and showcase website highlighting rooms, amenities, and hospitality.',
       link: 'https://shivrajhotel.vercel.app/'
     },
@@ -204,7 +223,8 @@ export default function PortfolioPage() {
       title: 'TechForex',
       category: 'Web Design',
       tag: 'Finance',
-      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/TechForex.png',
       description: 'Professional forex trading platform website with financial tools and market insights.',
       link: 'https://techforex.in/'
     },
@@ -213,7 +233,8 @@ export default function PortfolioPage() {
       title: 'DNA Repcom Lab',
       category: 'Web Design',
       tag: 'Healthcare',
-      image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/DNA-Repcom-Lab.png',
       description: 'Specialized cancer research institute website detailing facilities, research, and patient care.',
       link: 'https://dna-repcom-lab.vercel.app/'
     },
@@ -222,7 +243,8 @@ export default function PortfolioPage() {
       title: 'Mero Vrindavan Dham',
       category: 'Web Design',
       tag: 'Real Estate',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Mero-Vrindavan-Dham.png',
       description: 'Real estate platform for premium plots and properties in the sacred city of Vrindavan.',
       link: 'https://merovrindavandham.vercel.app/'
     },
@@ -240,7 +262,8 @@ export default function PortfolioPage() {
       title: 'Gas & Chimney Care',
       category: 'Web Design',
       tag: 'Home Services',
-      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
+      // image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
+      image: '/src/assets/Gas-&-Chimney-Care.png',
       description: 'Reliable gas and chimney maintenance service website with booking integration.',
       link: 'https://gaschimneycare-testing.netlify.app/'
     }

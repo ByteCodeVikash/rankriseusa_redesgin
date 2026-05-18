@@ -59,10 +59,10 @@ export default function PricingPage() {
   // Discount factors (multiplier for total price)
   const discountFactor: Record<number, number> = {
     1: 1,
-    3: 0.94,    // 6% off
-    6: 0.85,    // 15% off
-    9: 0.80,    // 20% off
-    12: 0.75    // 25% off
+    3: 0.94,
+    6: 0.85,
+    9: 0.80,
+    12: 0.75
   };
 
   // Pricing data for all categories
@@ -1310,7 +1310,7 @@ export default function PricingPage() {
             className="space-y-20"
           >
             {/* Primary Grid (Max 3) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+            <div className={`grid grid-cols-1 md:grid-cols-2 ${pricingData[selectedCategory]?.slice(0, 3).length === 2 ? 'lg:grid-cols-2 max-w-5xl' : pricingData[selectedCategory]?.slice(0, 3).length === 1 ? 'lg:grid-cols-1 max-w-lg' : 'lg:grid-cols-3 max-w-7xl'} gap-10 mx-auto`}>
               {pricingData[selectedCategory]?.slice(0, 3).map((plan, index) => renderCard(plan, index))}
             </div>
 
@@ -1322,7 +1322,7 @@ export default function PricingPage() {
                   <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground">Advanced Tiers</span>
                   <div className="h-px flex-grow bg-white" />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                <div className={`grid grid-cols-1 md:grid-cols-2 ${pricingData[selectedCategory]?.slice(3).length === 2 ? 'lg:grid-cols-2 max-w-5xl' : pricingData[selectedCategory]?.slice(3).length === 1 ? 'lg:grid-cols-1 max-w-lg' : 'lg:grid-cols-3 max-w-7xl'} gap-10 mx-auto`}>
                   {pricingData[selectedCategory]?.slice(3).map((plan, index) => renderCard(plan, index + 3))}
                 </div>
               </div>

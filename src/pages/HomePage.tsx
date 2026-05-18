@@ -16,8 +16,7 @@ export default function HomePage() {
     <main className="bg-[#05070a]">
       <Hero />
       <Services />
-      <NicheSolutions />
-
+      {/* <NicheSolutions /> */}
       <About />
       <WorkShowcase3D />
       <MarketingBranding />

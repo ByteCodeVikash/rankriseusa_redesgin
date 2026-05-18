@@ -29,21 +29,21 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { 
-      icon: Mail, 
-      label: 'Secure Inquiry', 
+    {
+      icon: Mail,
+      label: 'Secure Inquiry',
       value: 'sid.Rankriseusa@gmail.com',
       subtext: 'End-to-end encrypted protocol',
     },
-    { 
-      icon: Phone, 
-      label: 'Direct Line', 
-      value: '+1 (415) RANK-RISE',
+    {
+      icon: Phone,
+      label: 'Direct Line',
+      value: '+1 202-888-2806',
       subtext: 'Primary gateway (9AM - 6PM EST)',
     },
-    { 
-      icon: MapPin, 
-      label: 'Global Command', 
+    {
+      icon: MapPin,
+      label: 'Global Command',
       value: 'Silicon Valley, CA',
       subtext: 'Strategic operations hub',
     },
@@ -61,7 +61,7 @@ export default function Contact() {
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-primary/5 blur-[200px] rounded-full pointer-events-none" />
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Cinematic Header */}
         <div className="text-center mb-32">
@@ -79,7 +79,7 @@ export default function Contact() {
             Initiate <br />
             <span className="text-gradient-gold italic">Ascension.</span>
           </h2>
-          
+
           <p className="text-xl text-muted-foreground font-medium max-w-2xl mx-auto">
             Ready to redefine your digital presence? Our engineering team is standing by to architect your growth trajectory.
           </p>
@@ -145,7 +145,7 @@ export default function Contact() {
             className="relative"
           >
             <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
-            
+
             <form onSubmit={handleSubmit} className="glass-card p-12 md:p-16 rounded-[4rem] border-white/10 relative z-10 shadow-[0_0_80px_rgba(0,0,0,0.5)]">
               <div className="space-y-10">
                 <div className="flex items-center justify-between mb-6">
@@ -191,8 +191,8 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isSubmitting}
                   className="w-full h-20 rounded-[2rem] button-premium font-black uppercase tracking-[0.3em] text-xs shadow-[0_20px_60px_rgba(255,215,0,0.2)] group"
                 >
