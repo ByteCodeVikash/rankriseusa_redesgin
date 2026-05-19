@@ -98,45 +98,59 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Strategic Intelligence */}
+            {/* Strategic Intelligence – Updated Contact Details */}
             <div className="flex flex-col justify-center space-y-12">
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 className="space-y-8"
               >
+                {/* Email Card */}
                 <div className="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/20 transition-all group">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shrink-0">
                       <Mail className="w-8 h-8 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Electronic Mail</div>
-                      <div className="text-xl font-black text-foreground">intel@Rankriseusa.ai</div>
+                    <div className="flex-1">
+                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Email Us</div>
+                      <div className="space-y-1.5">
+                        <p className="text-lg font-bold text-foreground">info@rankriseusa.com</p>
+                        <p className="text-lg font-bold text-foreground">hr@rankriseusa.com</p>
+                        <p className="text-lg font-bold text-foreground">sam@rankriseusa.com</p>
+                        <p className="text-lg font-bold text-foreground">sid.rankriseusa@gmail.com</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
+                {/* Phone Card */}
                 <div className="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/20 transition-all group">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shrink-0">
                       <Phone className="w-8 h-8 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Direct Command Line</div>
-                      <div className="text-xl font-black text-foreground">+1 202 888 2806</div>
+                    <div className="flex-1">
+                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Direct Command Line</div>
+                      <div className="space-y-1.5">
+                        <p className="text-lg font-bold text-foreground">+1 202 888 2806</p>
+                        <p className="text-lg font-bold text-foreground">+1 202 780 0370</p>
+                        <p className="text-lg font-bold text-foreground">+1 425 943 9223</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
+                {/* Address Card */}
                 <div className="glass-card p-8 rounded-3xl border-white/5 hover:border-primary/20 transition-all group">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shrink-0">
                       <MapPin className="w-8 h-8 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-1">Global Headquarters</div>
-                      <div className="text-xl font-black text-foreground">Silicon Valley • New York</div>
+                    <div className="flex-1">
+                      <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-2">Global Headquarters</div>
+                      <p className="text-lg font-bold text-foreground leading-relaxed">
+                        4315 50th Street NW Suite 100,<br />Washington, DC 20016, USA
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -169,7 +183,7 @@ export default function ContactPage() {
       </section>
 
       {/* Global Support Map Placeholder */}
-      {/* <section className="py-20 bg-white/5 border-t border-white/5">
+      <section className="py-20 bg-white/5 border-t border-white/5">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-widest">Global Command Network</h3>
@@ -182,7 +196,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }

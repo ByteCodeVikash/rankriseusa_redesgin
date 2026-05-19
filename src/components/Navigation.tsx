@@ -62,8 +62,8 @@ export default function Navigation() {
     { name: 'Courses', path: '/courses' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'About', path: '/about' },
+    // { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -122,11 +122,18 @@ export default function Navigation() {
             {/* CTA & Mobile Toggle */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:flex flex-col items-center gap-1.5 translate-y-1.5">
-                <Link to="/contact">
-                  <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
-                    Let's Talk
-                  </Button>
-                </Link>
+                <div className="flex items-center gap-3">
+                  <Link to="/free-audit">
+                    <Button className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg backdrop-blur-sm">
+                      Get Free Audit
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
+                      Let's Talk
+                    </Button>
+                  </Link>
+                </div>
                 <a
                   href="https://www.washingtonadvert.com/"
                   target="_blank"

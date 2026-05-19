@@ -45,6 +45,7 @@ function GlobalPresenceMap() {
     }
   };
 
+
   return (
     <div
       ref={containerRef}
@@ -52,7 +53,7 @@ function GlobalPresenceMap() {
       className="w-full rounded-[3rem] overflow-hidden border border-white/5 mb-16 relative bg-[#05070a] group"
     >
       {/* Interactive Lighting Effect */}
-      <div 
+      <div
         className="absolute w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
         style={{
           left: mousePos.x - 250,
@@ -170,6 +171,21 @@ export default function Footer() {
     { country: 'India', city: 'Greater Noida', status: 'Engineering Hub', flag: '🇮🇳', address: 'Knowledge Park II' }
   ];
 
+
+  // Email list
+  const emailList = [
+    'info@rankriseusa.com',
+    'hr@rankriseusa.com',
+    'sam@rankriseusa.com',
+    'sid.rankriseusa@gmail.com',
+  ];
+
+  // Phone numbers
+  const phoneList = [
+    { number: '+1 202 888 2806', label: 'US' },
+    { number: '+1 202 780 0370', label: 'US' },
+    { number: '+1 425 943 9223', label: 'US' },
+  ];
   return (
     <footer className="bg-background pt-32 pb-12 relative overflow-hidden">
       {/* Mesh Background */}
@@ -179,8 +195,8 @@ export default function Footer() {
         <GlobalPresenceMap />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-24">
-          {/* Brand & Newsletter */}
-          <div className="lg:col-span-4 space-y-12">
+          {/* Brand & Newsletter – YELLOW BORDER AROUND LOGO CONTAINER */}
+          <div className="lg:col-span-4 space-y-12 border border-yellow-400 rounded-2xl p-6">
             <Link to="/" className="inline-block">
               <img
                 src="/assets/images/logo1.png"
@@ -190,8 +206,8 @@ export default function Footer() {
             </Link>
 
             <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-              We architect the digital future. Our neural systems empower
-              the world's most ambitious founders and tech leaders.
+              We architect the digital future. Our neural systems empower the world's most
+              ambitious founders and tech leaders.
             </p>
 
             <form onSubmit={handleNewsletter} className="space-y-6">
@@ -203,7 +219,10 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-white/5 border-white/10 h-16 rounded-2xl px-6 text-foreground placeholder:text-muted-foreground/50 focus:ring-primary focus:border-primary transition-all font-bold"
                 />
-                <Button type="submit" className="absolute right-2 top-2 h-12 px-6 rounded-xl button-premium text-[10px] uppercase tracking-widest">
+                <Button
+                  type="submit"
+                  className="absolute right-2 top-2 h-12 px-6 rounded-xl button-premium text-[10px] uppercase tracking-widest"
+                >
                   Join Elite
                 </Button>
               </div>
@@ -215,14 +234,18 @@ export default function Footer() {
 
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
-                <a key={i} href={social.href} className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center border-white/5 transition-all group hover:-translate-y-1 bg-[#0a0a0a]">
-                  <social.icon className={`w-6 h-6 transition-all group-hover:scale-110 ${social.colorClass}`} />
+                <a
+                  key={i}
+                  href={social.href}
+                  className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center border-white/5 hover:border-primary/50 text-muted-foreground hover:text-primary transition-all group"
+                >
+                  <social.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Office Locations */}
+          {/* Office Locations + Contact Info */}
           <div className="lg:col-span-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
               {offices.map((office, i) => (
@@ -230,17 +253,81 @@ export default function Footer() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{office.flag}</span>
                     <div>
-                      <h4 className="text-primary font-black text-[10px] uppercase tracking-[0.2em]">{office.status}</h4>
+                      <h4 className="text-primary font-black text-[10px] uppercase tracking-[0.2em]">
+                        {office.status}
+                      </h4>
                       <p className="text-lg font-black text-foreground">{office.country}</p>
                     </div>
                   </div>
                   <div className="space-y-2 text-sm text-muted-foreground font-medium">
-                    <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-primary/50" /> {office.city}</p>
-                    <p className="flex items-center gap-2"><Globe className="w-4 h-4 text-primary/50" /> {office.address}</p>
+                    {office.address ? (
+                      <>
+                        <p className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-primary/50" /> {office.city}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <Globe className="w-4 h-4 text-primary/50" /> {office.address}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-xs uppercase tracking-wider font-bold text-muted-foreground/60">
+                        Coming Soon
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* ---------- CONTACT DETAILS SECTION ---------- */}
+            <div className="mt-8 p-6 bg-white/[0.03] backdrop-blur-sm rounded-3xl border border-white/5">
+              <h3 className="text-foreground font-black text-[10px] uppercase tracking-[0.3em] mb-6">
+                Connect With Us
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {/* Email Block */}
+                <div>
+                  <h4 className="flex items-center gap-2 text-primary font-bold text-sm mb-4">
+                    <Mail className="w-4 h-4" /> Email Us
+                  </h4>
+                  <ul className="space-y-3">
+                    {emailList.map((emailAddr, idx) => (
+                      <li key={idx}>
+                        <a
+                          href={`mailto:${emailAddr}`}
+                          className="text-muted-foreground hover:text-primary text-xs font-medium transition-colors break-all"
+                        >
+                          {emailAddr}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Phone Block */}
+                <div>
+                  <h4 className="flex items-center gap-2 text-primary font-bold text-sm mb-4">
+                    <Phone className="w-4 h-4" /> Call Us
+                  </h4>
+                  <ul className="space-y-3">
+                    {phoneList.map((phone, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <a
+                          href={`tel:${phone.number.replace(/\s/g, '')}`}
+                          className="text-muted-foreground hover:text-primary text-xs font-medium transition-colors"
+                        >
+                          {phone.number}
+                        </a>
+                        <span className="text-[10px] text-muted-foreground/60 font-bold uppercase">
+                          ({phone.label})
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* ---------- END CONTACT DETAILS ---------- */}
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 pt-12 border-t border-white/5">
               {[
@@ -251,7 +338,7 @@ export default function Footer() {
                     { name: 'AI Engineering', path: '/services' },
                     { name: 'Growth Engines', path: '/services' },
                     { name: 'Brand Authority', path: '/services' },
-                  ]
+                  ],
                 },
                 {
                   title: 'Ecosystem',
@@ -260,17 +347,18 @@ export default function Footer() {
                     { name: 'The Process', path: '/about' },
                     { name: 'Founder Network', path: '/about' },
                     { name: 'Success Stories', path: '/about' },
-                  ]
+                  ],
                 },
                 {
-                  title: 'Governance',
+                  title: 'Legal',
                   links: [
                     { name: 'Privacy Policy', path: '/privacy-policy' },
-                    { name: 'Terms of Service', path: '/terms-and-conditions' },
-                    { name: 'Security Protocol', path: '/disclaimer' },
-                    { name: 'Refund Policy', path: '/refund-cancellation' },
-                  ]
-                }
+                    { name: 'Terms & Conditions', path: '/terms-and-conditions' },
+                    { name: 'Refund / Cancellation', path: '/refund-cancellation' },
+                    { name: 'Cookies Policy', path: '/cookies-policy' },
+                    { name: 'Disclaimer', path: '/disclaimer' },
+                  ],
+                },
               ].map((column, i) => (
                 <div key={i}>
                   <h3 className="text-foreground font-black text-[10px] uppercase tracking-[0.3em] mb-10">
@@ -279,7 +367,10 @@ export default function Footer() {
                   <ul className="space-y-5">
                     {column.links.map((link, j) => (
                       <li key={j}>
-                        <Link to={link.path} className="text-muted-foreground hover:text-primary font-bold text-xs uppercase tracking-widest transition-colors block">
+                        <Link
+                          to={link.path}
+                          className="text-muted-foreground hover:text-primary font-bold text-xs uppercase tracking-widest transition-colors block"
+                        >
                           {link.name}
                         </Link>
                       </li>
@@ -291,16 +382,36 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground/60">
-            <span>© 2026 Rankriseusa Global Ltd.</span>
-            <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-primary" />
-            <div className="flex items-center gap-2">
-              Neural Integrity <ShieldCheck className="w-3 h-3 text-primary" />
+        {/* Footer Bottom – Yellow bordered copyright + single line legal links */}
+        <div className="pt-12 border-t border-white/5">
+          {/* Copyright line with yellow border, centered */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground border border-yellow-400 rounded-lg px-4 py-2">
+              <span className="text-xs font-bold uppercase tracking-wider">
+                © 2026 Rankrise USA.
+              </span>
+              <span className="hidden sm:inline text-muted-foreground/40">|</span>
+              <span className="text-xs text-muted-foreground/70 hidden sm:inline">
+                Transforming businesses with cutting-edge solutions
+              </span>
+              <span className="hidden sm:inline text-muted-foreground/40">|</span>
+              <span className="text-xs">
+                Designed & developed by{' '}
+                <strong className="text-primary font-black">Shivam Pandey</strong>
+              </span>
             </div>
           </div>
 
+          {/* Legal links – single horizontal line, centered */}
+          <div className="flex justify-center">
+            <div className="flex flex-nowrap gap-x-6 text-[10px] sm:text-xs uppercase tracking-widest font-black overflow-x-auto whitespace-nowrap py-2 text-muted-foreground">
+              <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">Terms & Conditions</Link>
+              <Link to="/refund-cancellation" className="hover:text-primary transition-colors">Refund / Cancellation</Link>
+              <Link to="/cookies-policy" className="hover:text-primary transition-colors">Cookies Policy</Link>
+              <Link to="/disclaimer" className="hover:text-primary transition-colors">Disclaimer</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

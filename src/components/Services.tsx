@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Share2, Code, Brain, Megaphone, BarChart3, ArrowRight, Sparkles,
   Zap, ShoppingCart, Target, Shield, Smartphone, Server, Bot, Database,
@@ -15,6 +15,7 @@ import AnmlServices from './AnmlServices';
 export default function Services() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [quoteFormOpen, setQuoteFormOpen] = useState(false);
 
   const services = [
     {
@@ -132,11 +133,14 @@ export default function Services() {
     },
   ];
 
+  const handleGetQuote = () => {
+    setQuoteFormOpen(true);
+  };
 
-  const handleAction = (service: any, e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (service.comingSoon) return;
-    alert(service.isQuote ? `Requesting quote for ${service.title}` : `Purchasing ${service.title}`);
+  const handleSubmitQuote = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Quote request submitted! Our team will get back to you shortly.');
+    setQuoteFormOpen(false);
   };
 
   return (
@@ -217,7 +221,6 @@ export default function Services() {
               service={service}
               index={index}
               onClick={() => setSelectedService(index)}
-              onAction={handleAction}
               isHovered={hoveredIndex === index}
               onHover={() => setHoveredIndex(index)}
               onLeave={() => setHoveredIndex(null)}
@@ -296,7 +299,7 @@ export default function Services() {
               </div>
 
               {/* Right Column: Content */}
-              <div className="lg:w-3/5 p-12 space-y-10 bg-[#0d1117]">
+              <div className="lg:w-3/5 p-8 sm:p-12 space-y-8 bg-[#0d1117]">
                 <DialogHeader>
                   <DialogTitle className="text-4xl font-black text-white tracking-tighter mb-4">
                     {services[selectedService].title}
@@ -322,21 +325,18 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-8">
-                    <div>
-                      <h4 className="font-black text-white/30 uppercase text-[10px] tracking-[0.3em] mb-2">Strategic Investment</h4>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-black text-primary">
-                          {services[selectedService].price}
-                        </span>
-                        {!services[selectedService].isQuote && <span className="text-white/30 text-sm font-bold">/ Project</span>}
-                      </div>
-                    </div>
+                  {/* REPLACED: Two action buttons (no price, no deploy) */}
+                  <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <Link to="/pricing" className="w-full sm:w-auto">
+                      <Button className="w-full sm:w-auto px-8 py-5 rounded-2xl text-xs uppercase tracking-[0.2em] bg-white border border-white/10 hover:bg-white/10 transition-colors">
+                        Go to Pricing Page
+                      </Button>
+                    </Link>
                     <Button
-                      className="button-premium w-full sm:w-auto px-12 py-7 rounded-2xl text-xs uppercase tracking-[0.2em]"
-                      onClick={(e) => handleAction(services[selectedService], e)}
+                      className="button-premium w-full sm:w-auto px-8 py-5 rounded-2xl text-xs uppercase tracking-[0.2em]"
+                      onClick={handleGetQuote}
                     >
-                      {services[selectedService].isQuote ? 'Request Protocol' : 'Deploy Now'}
+                      Get Quote
                     </Button>
                   </div>
                 </div>
@@ -345,11 +345,83 @@ export default function Services() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Quote Form Modal */}
+      <Dialog open={quoteFormOpen} onOpenChange={setQuoteFormOpen}>
+        <DialogContent className="max-w-2xl bg-[#0d1117]/95 backdrop-blur-3xl border-white/5 p-0 overflow-hidden rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
+          {selectedService !== null && (
+            <div className="p-6 sm:p-10 space-y-8">
+              <DialogHeader>
+                <DialogTitle className="text-2xl sm:text-3xl font-black text-white tracking-tighter">
+                  Get a Quote for {services[selectedService].title}
+                </DialogTitle>
+                <DialogDescription className="text-white/50">
+                  Fill out the form and we'll prepare a tailored proposal.
+                </DialogDescription>
+              </DialogHeader>
+
+              {/* Show selected features */}
+              <div className="space-y-3">
+                <h4 className="text-xs font-black uppercase tracking-[0.3em] text-white/30">Selected Services</h4>
+                <div className="flex flex-wrap gap-2">
+                  {services[selectedService].features.map((feat, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full border border-primary/30">
+                      {feat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <form onSubmit={handleSubmitQuote} className="space-y-6">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Email</label>
+                    <input
+                      type="email"
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                      placeholder="john@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Phone</label>
+                    <input
+                      type="tel"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                      placeholder="+1 234 567 890"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Message</label>
+                  <textarea
+                    rows={4}
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                    placeholder="Tell us about your project..."
+                  />
+                </div>
+                <Button type="submit" className="button-premium w-full py-6 rounded-2xl text-sm uppercase tracking-[0.3em]">
+                  Submit Inquiry
+                </Button>
+              </form>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
 
-function ServiceCard({ service, index, onClick, onHover, onLeave, isHovered }: any) {
+function ServiceCard({ service, index, onClick, isHovered, onHover, onLeave }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
