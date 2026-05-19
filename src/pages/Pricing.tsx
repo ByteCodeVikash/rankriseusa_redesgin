@@ -8,7 +8,8 @@ import {
 import {
   Globe, Lock, PenTool, Star, Rocket, Crown, Zap, Briefcase,
   TrendingUp, Users, Settings, HardDrive, Cpu, ArrowRight,
-  ShieldCheck, ZapOff, Layers, Activity, Plus as PlusIcon, Clock
+  ShieldCheck, ZapOff, Layers, Activity, Plus as PlusIcon, Clock, HelpCircle,
+  Mail, Phone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { submitToSheet } from '@/lib/utils';
@@ -1156,23 +1157,23 @@ export default function PricingPage() {
           )}
         </div>
 
-        <Button
-          onClick={() => openModal(plan, selectedCategory)}
-          className={`w-full h-16 rounded-[1.5rem] font-black uppercase tracking-[0.2em] text-[10px] group overflow-hidden relative ${plan.popular ? 'button-premium' : 'bg-white/5 hover:bg-white/10 text-foreground border border-white/10'
-            }`}
-        >
-          <span className="relative z-10 flex items-center justify-center gap-2">
-            Initialize Protocol
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </span>
-          {plan.popular && (
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-            />
-          )}
-        </Button>
+        {/* Action Buttons: Pay Now & Ask Question */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <Button
+            onClick={() => openModal(plan, selectedCategory)}
+            className="h-14 rounded-[1.2rem] font-black uppercase tracking-[0.15em] text-[10px] bg-primary text-background hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
+          >
+            <Lock className="w-4 h-4" />
+            Pay Now
+          </Button>
+          <Button
+            onClick={() => openModal(plan, selectedCategory)}
+            className="h-14 rounded-[1.2rem] font-black uppercase tracking-[0.15em] text-[10px] bg-white/5 hover:bg-white/10 text-foreground border border-white/10 transition-all flex items-center justify-center gap-2"
+          >
+            <HelpCircle className="w-4 h-4" />
+            Ask Question
+          </Button>
+        </div>
       </motion.div>
     );
   };
@@ -1183,23 +1184,7 @@ export default function PricingPage() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] -z-10" />
 
-      {/* Fixed Tools - Desktop */}
-      <div className="hidden lg:block">
-        <Link
-          to="/custom-plan"
-          className="fixed left-8 top-1/2 -translate-y-1/2 z-0 flex items-center gap-3 bg-pink-700 backdrop-blur-xl border border-white/10 text-foreground px-6 py-4 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
-        >
-          {/* <Sparkles className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
-          <span className="uppercase tracking-widest">Custom Plan</span>
-        </Link>
-        <Link
-          to="/cost-calculator"
-          className="fixed right-8 top-1/2 -translate-y-1/2 z-0 flex items-center gap-3 bg-blue-500 backdrop-blur-xl border border-white/10 text-foreground px-4 py-3 rounded-xl text-sm font-bold shadow-2xl hover:border-primary/50 transition-all hover:scale-105 vertical-text group"
-        >
-          {/* <Calculator className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform" /> */}
-          <span className="uppercase tracking-widest">Cost Calculator</span>
-        </Link>
-      </div>
+
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Header Section */}

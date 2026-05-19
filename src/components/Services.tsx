@@ -328,7 +328,7 @@ export default function Services() {
                   {/* REPLACED: Two action buttons (no price, no deploy) */}
                   <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <Link to="/pricing" className="w-full sm:w-auto">
-                      <Button className="w-full sm:w-auto px-8 py-5 rounded-2xl text-xs uppercase tracking-[0.2em] bg-white border border-white/10 hover:bg-white/10 transition-colors">
+                      <Button className="w-full sm:w-auto px-8 py-5 rounded-2xl text-xs uppercase tracking-[0.2em] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                         Go to Pricing Page
                       </Button>
                     </Link>

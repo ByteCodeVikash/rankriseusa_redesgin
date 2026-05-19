@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, Search, Sparkles, Facebook, Instagram, Linkedin, Youtube, Phone, Mail, Clock, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Link, useLocation } from 'react-router-dom';
 
 function TopBar() {
@@ -41,6 +42,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [auditFormOpen, setAuditFormOpen] = useState(false);
   const { scrollY } = useScroll();
   const navY = useTransform(scrollY, [0, 100], [0, 0]);
   const location = useLocation();
@@ -55,6 +57,12 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
     setIsSearchOpen(false);
   }, [location]);
+
+  const handleSubmitAudit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Audit request submitted! Our team will get back to you shortly.');
+    setAuditFormOpen(false);
+  };
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -123,11 +131,12 @@ export default function Navigation() {
             <div className="flex items-center gap-4">
               <div className="hidden sm:flex flex-col items-center gap-1.5 translate-y-1.5">
                 <div className="flex items-center gap-3">
-                  <Link to="/free-audit">
-                    <Button className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg backdrop-blur-sm">
-                      Get Free Audit
-                    </Button>
-                  </Link>
+                  <Button 
+                    onClick={() => setAuditFormOpen(true)}
+                    className="bg-transparent border border-white/20 hover:bg-white/5 text-white font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg backdrop-blur-sm"
+                  >
+                    Get Free Audit
+                  </Button>
                   <Link to="/contact">
                     <Button className="bg-[#EAB308] hover:bg-[#D4A017] text-black font-black uppercase tracking-widest text-[10px] px-8 py-6 rounded-full transition-all duration-300 shadow-lg">
                       Let's Talk
@@ -190,15 +199,75 @@ export default function Navigation() {
                 Pricing Plans
               </Button>
             </Link>
-            <Link to="/free-audit">
-              <Button size="lg" className="w-full button-elite text-white rounded-xl h-14 text-lg font-semibold">
-                <Sparkles className="w-5 h-5 mr-2" />
-                Free Audit
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              onClick={() => setAuditFormOpen(true)}
+              className="w-full button-elite text-white rounded-xl h-14 text-lg font-semibold"
+            >
+              <Sparkles className="w-5 h-5 mr-2" />
+              Free Audit
+            </Button>
           </div>
         </div>
       </motion.div>
+
+      <Dialog open={auditFormOpen} onOpenChange={setAuditFormOpen}>
+        <DialogContent className="max-w-2xl bg-[#0d1117]/95 backdrop-blur-3xl border-white/5 p-0 overflow-hidden rounded-[3rem] shadow-[0_50px_100px_rgba(0,0,0,0.8)] z-[100]">
+          <div className="p-6 sm:p-10 space-y-8">
+            <DialogHeader>
+              <DialogTitle className="text-2xl sm:text-3xl font-black text-white tracking-tighter">
+                Get Your Free SEO Audit
+              </DialogTitle>
+              <DialogDescription className="text-white/50">
+                Enter your details and website URL, and our experts will analyze your digital presence.
+              </DialogDescription>
+            </DialogHeader>
+
+            <form onSubmit={handleSubmitAudit} className="space-y-6">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Website URL</label>
+                <input
+                  type="url"
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                  placeholder="https://yourwebsite.com"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  required
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Email</label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="john@company.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-2">Phone</label>
+                  <input
+                    type="tel"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-primary/50 transition-colors"
+                    placeholder="+1 234 567 890"
+                  />
+                </div>
+              </div>
+              <Button type="submit" className="button-premium w-full py-6 rounded-2xl text-sm uppercase tracking-[0.3em]">
+                Request Audit
+              </Button>
+            </form>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

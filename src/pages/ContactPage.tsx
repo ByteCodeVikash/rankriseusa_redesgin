@@ -182,21 +182,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Global Support Map Placeholder */}
-      <section className="py-20 bg-white/5 border-t border-white/5">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-widest">Global Command Network</h3>
-            <div className="aspect-[21/9] bg-[#05070a] rounded-[3rem] border border-white/5 flex items-center justify-center relative overflow-hidden group">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.1),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="text-muted-foreground font-bold italic tracking-widest text-sm flex items-center gap-3">
-                <Target className="w-5 h-5 text-primary animate-pulse" />
-                Live Network Visualization Active
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
